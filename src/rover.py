@@ -1,4 +1,4 @@
-from tkinter import Tk, Button, Label, filedialog, Entry, Listbox, Toplevel
+from tkinter import Tk, Button, Label, Entry, Listbox, Toplevel
 
 appname = 'rover'
 directions = ['north', 'east', 'south', 'west']
