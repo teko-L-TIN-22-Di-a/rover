@@ -9,7 +9,7 @@ class Rover:
         self.speed = 1
         self.xvalue = xvalue
         self.yvalue = yvalue
-        self.symbol = 'O'
+        self.symbol = '↑'
         self.map = map_object
 
     def update_position(self, newPosition):
