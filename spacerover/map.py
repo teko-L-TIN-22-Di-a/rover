@@ -32,13 +32,13 @@ class Map:
         self.__mapmatrix[yvalue][xvalue] = symbol
         print(f'new position: {xvalue}, {yvalue}')
 
-    def moveForward(self, yvalue, xvalue, direction):  
+    def move(self, yvalue, xvalue, direction):  
         self.__mapmatrix[yvalue][xvalue] = '_'
         # directions 
-        # 0 = north
-        # 1 = east
-        # 2 = south
-        # 3 = west
+        # 0 = up
+        # 1 = right
+        # 2 = left
+        # 3 = down
         if direction == 0:
             if yvalue -1 < 0:
                 print('move blocked')

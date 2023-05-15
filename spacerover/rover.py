@@ -2,7 +2,7 @@ from enum import Enum
 from spacerover.map import *
 
 class Rover:
-    direction = ['north', 'east', 'south', 'west']
+    direction = ['up', 'down', 'right', 'left']
     
     def __init__(self, xvalue, yvalue, map_object):
         self.direction = 0
@@ -13,12 +13,13 @@ class Rover:
         self.map = map_object
 
     def update_position(self, newPosition):
-        self.xvalue = newPosition[0]
+        self.yvalue = newPosition[0]
+        self.xvalue = newPosition[1]
         self.map.update_position(self.yvalue, self.xvalue, self.symbol)        
         self.map.mapupdate()
 
-    def move_forward(self):
-       newPosition = self.map.moveForward(self.yvalue, self.xvalue, 0)       
+    def move(self):
+       newPosition = self.map.move(self.yvalue, self.xvalue, 0)       
        self.update_position(newPosition)
         # directions 
         # 0 = north
