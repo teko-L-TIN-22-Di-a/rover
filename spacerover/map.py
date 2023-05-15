@@ -12,6 +12,9 @@ class Map:
             ['_','_','_','_','_','_','X','_','_'],
             ['_','_','_','X','_','_','_','_','_'],
             ['_','_','_','_','_','_','_','_','_']]
+        
+        self.rows = len(self.__mapmatrix)
+        self.columns = len(self.__mapmatrix[0])
                 
     @property
     def map_print(self):
@@ -28,50 +31,42 @@ class Map:
         mapprint = f'{self.__mapmatrix[0]}\n{self.__mapmatrix[1]}\n{self.__mapmatrix[2]}\n{self.__mapmatrix[3]}\n{self.__mapmatrix[4]}\n{self.__mapmatrix[5]}\n{self.__mapmatrix[6]}\n{self.__mapmatrix[7]}\n{self.__mapmatrix[8]}\n'
         self.field.configure(text = mapprint)
 
-    def update_position(self, yvalue,xvalue, symbol):        
+    def update_rover_position(self, yvalue, xvalue, symbol):        
         self.__mapmatrix[yvalue][xvalue] = symbol
-        print(f'new position: {xvalue}, {yvalue}')
-
-    def move(self, yvalue, xvalue, direction):  
-        self.__mapmatrix[yvalue][xvalue] = '_'
-        # directions 
-        # 0 = up
-        # 1 = right
-        # 2 = left
-        # 3 = down
-        if direction == 0:
-            if yvalue -1 < 0:
-                print('move blocked')
-            elif self.__mapmatrix[yvalue -1][xvalue] == 'X':
-                print('move blocked')
-            else:
-                yvalue = yvalue -1
-                print('moved north')
-        elif direction == 1:
-            print(len(self.__mapmatrix[xvalue]))
-            if xvalue +1 == len(self.__mapmatrix[xvalue]):
-                print('move blocked')
-            elif self.__mapmatrix[yvalue][xvalue +1] == 'X':
-                print('move blocked')
-            else:
-                xvalue = xvalue +1
-                print('moved east')
-        elif direction == 2:
-            print(len(self.__mapmatrix))
-            if yvalue +1 == len(self.__mapmatrix):
-                print('move blocked')
-            elif self.__mapmatrix[yvalue +1][xvalue] == 'X':
-                print('move blocked')
-            else:
-                yvalue = yvalue +1
-                print('moved south')
-        elif direction == 3:
-            if xvalue -1 < 0:
-                print('move blocked')
-            elif self.__mapmatrix[yvalue][xvalue -1] == 'X':
-                print('move blocked')
-            else:
-                xvalue = xvalue -1
-                print('moved west')
+        print(f'new position: {xvalue}, {yvalue}')        
         self.mapupdate()
+        
+    def check_move(self, yvalue, xvalue):
+        if yvalue < 0 or xvalue < 0:
+            self.__move_blocked()
+            return False
+        elif yvalue == self.rows or xvalue == self.columns: # shouldn't be necessary, but I'll leave it here
+            self.__move_blocked()
+            return False
+        elif self.__mapmatrix[yvalue][xvalue] == 'X':
+            self.__move_blocked()
+            return False
+        return True
+
+    def move(self, yvalue, xvalue, direction):
+        self.__clear_current_position(yvalue, xvalue)
+        
+        if direction.name == "up":
+            if self.check_move(yvalue -1, xvalue): 
+                yvalue -= 1      
+        elif direction.name == "down":
+            if self.check_move(yvalue +1, xvalue): 
+                yvalue += 1
+        elif direction.name == "right":
+            if self.check_move(yvalue, xvalue + 1): 
+                xvalue += 1
+        elif direction.name == "left": 
+            if self.check_move(yvalue, xvalue - 1): 
+                xvalue -= 1
         return [yvalue, xvalue]
+    
+    def __clear_current_position(self, yvalue, xvalue):      
+        self.__mapmatrix[yvalue][xvalue] = '_'
+        
+    def __move_blocked(self):
+        print("move blocked")

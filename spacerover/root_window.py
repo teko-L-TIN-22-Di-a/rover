@@ -35,12 +35,12 @@ class RootWindow(tk.Tk):
         self.__mapprint()
         self.space_rover = rover.Rover(4,4, self.rover_map)
         self.space_rover.update_position([4,4])
-        forward_button = tk.Button(self, text = 'forward', width = 15, command = self.space_rover.move)
+        forward_button = tk.Button(self, text = 'move up', width = 15, command = self.space_rover.move_forward)
         forward_button.place(anchor = 'n', x = 300, y = 400)
-        left_button = tk.Button(self, text = 'turn left', width = 15, command = self.space_rover.change_direction_left)
+        left_button = tk.Button(self, text = 'turn left', width = 15, command = self.space_rover.turn_left)
         left_button.place(anchor = 'n', x = 200, y = 440)
-        right_button = tk.Button(self, text = 'turn right', width = 15, command = self.space_rover.change_direction_right)
-        right_button.place(anchor = 'n', x = 400, y = 440)   
+        right_button = tk.Button(self, text = 'turn right', width = 15, command = self.space_rover.turn_right)
+        right_button.place(anchor = 'n', x = 400, y = 440)
     
     def __mapprint(self):
         map_print = self.rover_map.map_print
