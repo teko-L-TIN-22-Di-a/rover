@@ -4,6 +4,8 @@ Here are some [best-practices] for python.
 
 [best-practices]: https://data-flair.training/blogs/python-best-practices
 
+Generate Class Diagram [how-to]
+
 ## Workflows
 
 * rover can move forward / backwards / left / right. (if one movement should be deactivated, they have to be splitted worklows)
@@ -21,3 +23,4 @@ Here are some [best-practices] for python.
 ist der Code aber einfacher zu verstehen und es ergibt sich in der jeweiligen Klasse einen sauberen Überblick, was die Klasse macht.
 
 [Property decorator]: [https://www.programiz.com/python-programming/property]
+[how-to]: https://quisl.de/b/wie-du-uml-klassendiagramme-aus-python-code-erstellst-in-3-schritten-pyreverse-tutorial/

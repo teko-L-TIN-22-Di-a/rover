@@ -55,10 +55,10 @@ jobs:
 
       - name: Build exe from Python Script
         run: |
-          pyinstaller --onefile __main__.py
+          pyinstaller --onefile setup.py
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          # name: __main__
+          # name: spacerover
           path: dist/*

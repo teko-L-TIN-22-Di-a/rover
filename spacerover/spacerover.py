@@ -5,5 +5,5 @@ def main():
     rootwindow = root_window.RootWindow(appName)
     rootwindow._mainloop()
         
-if __name__ == "__main__":
+if __name__ == "spacerover":
     main()
