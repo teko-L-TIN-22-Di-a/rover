@@ -6,8 +6,8 @@ root.title(gamename)
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 # Set the size of the window
-root_width = 1000
-root_height = 800
+root_width = screen_width
+root_height = screen_height
 # Calculate the position of the window
 x_pos = (screen_width // 2) - (root_width // 2)
 y_pos = (screen_height // 2) - (root_height // 2)
