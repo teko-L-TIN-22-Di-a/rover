@@ -1,0 +1,67 @@
+    def calculate_angles(self):
+        angle = atan((self.width_halved)/(self.height_halved))
+        angle_nw = 2*pi-angle
+        angle_ne = angle
+        angle_sw = pi + angle
+        angle_se = pi - angle
+        self.angles = [angle_nw, angle_ne, angle_sw, angle_se]
+
+    def calculate_corners(self):
+        corner_nw = (self.origin[0] - self.width_halved, self.origin[1] - self.height_halved)
+        corner_ne = (self.origin[0] + self.width_halved, self.origin[1] - self.height_halved)
+        corner_sw = (self.origin[0] - self.width_halved, self.origin[1] + self.height_halved)
+        corner_se = (self.origin[0] + self.width_halved, self.origin[1] + self.height_halved)
+        self.corners = [corner_nw,corner_ne,corner_sw,corner_se]
+
+    def calculate_linepoint(self,angle):
+        self.linepoint = [0,0]
+        if angle > self.angles[0]:
+            angle -= 2*pi-angle
+            width_diff = tan(angle)*self.height_halved
+            self.linepoint[0] = self.origin[0] - width_diff
+            self.linepoint[1] = self.origin[1] + self.height_halved
+            self.direction = 7
+        elif angle < self.angles[1]:
+            width_diff = tan(angle)*self.height_halved
+            self.linepoint[0] = self.origin[0] + width_diff
+            self.linepoint[1] = self.origin[1] + self.height_halved
+            self.direction = 0
+        elif angle > pi*3/2:
+            angle -= pi*3/2
+            height_diff = tan(angle)*self.width_halved
+            self.linepoint[0] = self.origin[0] - self.width_halved
+            self.linepoint[1] = self.origin[1] + height_diff
+            self.direction = 6
+        elif angle < pi/2:
+            angle = pi/2 - angle
+            height_diff = tan(angle)*self.width_halved
+            self.linepoint[0] = self.origin[0] + self.width_halved
+            self.linepoint[1] = self.origin[1] + height_diff
+            self.direction = 1
+        elif angle > self.angles[2]:
+            angle -= pi*3/2
+            height_diff = tan(angle)*self.width_halved
+            self.linepoint[0] = self.origin[0] - self.width_halved
+            self.linepoint[1] = self.origin[1] - height_diff
+            self.direction = 5
+        elif angle < self.angles[3]:
+            angle -= pi/2
+            height_diff = tan(angle)*self.width_halved
+            self.linepoint[0] = self.origin[0] + self.width_halved
+            self.linepoint[1] = self.origin[1] - height_diff
+            self.direction = 2
+        elif angle >= pi:
+            angle -= pi
+            width_diff = tan(angle)*self.height_halved
+            self.linepoint[0] = self.origin[0] - width_diff
+            self.linepoint[1] = self.origin[1] - self.height_halved
+            self.direction = 4
+        elif angle < pi:
+            angle = pi - angle
+            width_diff = tan(angle)*self.height_halved
+            self.linepoint[0] = self.origin[0] + width_diff
+            self.linepoint[1] = self.origin[1] - self.height_halved
+            self.direction = 3
+        else:
+            print("angle error")
+            return "angle error"
