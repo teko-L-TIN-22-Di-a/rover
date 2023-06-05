@@ -4,7 +4,7 @@ Here are some [best-practices] for python.
 
 [best-practices]: https://data-flair.training/blogs/python-best-practices
 
-Generate Class Diagram [how-to]
+Generate class diagrams ./appmap.md
 
 ## Workflows
 
@@ -23,4 +23,3 @@ Generate Class Diagram [how-to]
 ist der Code aber einfacher zu verstehen und es ergibt sich in der jeweiligen Klasse einen sauberen Überblick, was die Klasse macht.
 
 [Property decorator]: [https://www.programiz.com/python-programming/property]
-[how-to]: https://quisl.de/b/wie-du-uml-klassendiagramme-aus-python-code-erstellst-in-3-schritten-pyreverse-tutorial/

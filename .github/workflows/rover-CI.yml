@@ -50,8 +50,8 @@ jobs:
       #     pytest
 
       - name: Build exe from Python Script
-        run: |
-          pyinstaller --onefile setup.py
+        run: |         
+          pyinstaller --onefile setup.py --name spacerover --noconsole
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3

@@ -1,5 +1,5 @@
 import tkinter as tk
-from spacerover import map, rover
+import map, rover
 
 class RootWindow(tk.Tk):  
     def __init__(self, window_title):

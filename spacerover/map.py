@@ -31,12 +31,12 @@ class Map:
         mapprint = f'{self.__mapmatrix[0]}\n{self.__mapmatrix[1]}\n{self.__mapmatrix[2]}\n{self.__mapmatrix[3]}\n{self.__mapmatrix[4]}\n{self.__mapmatrix[5]}\n{self.__mapmatrix[6]}\n{self.__mapmatrix[7]}\n{self.__mapmatrix[8]}\n'
         self.field.configure(text = mapprint)
 
-    def update_rover_position(self, yvalue, xvalue, symbol):        
+    def update_rover_position(self, yvalue: int, xvalue: int, symbol):        
         self.__mapmatrix[yvalue][xvalue] = symbol
         print(f'new position: {xvalue}, {yvalue}')        
         self.mapupdate()
         
-    def check_move(self, yvalue, xvalue):
+    def check_move(self, yvalue: int, xvalue: int):
         if yvalue < 0 or xvalue < 0:
             self.__move_blocked()
             return False
@@ -48,7 +48,7 @@ class Map:
             return False
         return True
 
-    def move(self, yvalue, xvalue, direction):
+    def move(self, yvalue: int, xvalue: int, direction):
         self.__clear_current_position(yvalue, xvalue)
         
         if direction.name == "up":
@@ -65,7 +65,7 @@ class Map:
                 xvalue -= 1
         return [yvalue, xvalue]
     
-    def __clear_current_position(self, yvalue, xvalue):      
+    def __clear_current_position(self, yvalue: int, xvalue: int):      
         self.__mapmatrix[yvalue][xvalue] = '_'
         
     def __move_blocked(self):

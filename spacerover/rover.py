@@ -1,16 +1,16 @@
 from enum import Enum
-from spacerover.map import *
+import map
 
 class Rover:
     directions = Enum('directions', ["up", "right", "down", "left"])
     symbols = Enum('symbols', ['↑', '→', '↓', '←'])
     
-    def __init__(self, xvalue, yvalue, map_object):
+    def __init__(self, xvalue: int, yvalue: int, map_object: map):
         self.direction = self.directions.up
         self.speed = 1
         self.xvalue = xvalue
         self.yvalue = yvalue
-        self.map = map_object
+        Rover.map = map_object
         self.update_symbol()
 
     def update_position(self, newPosition):
