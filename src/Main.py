@@ -1,8 +1,8 @@
-from Resources.Root import root, root_width, root_height
-from Display.Display import Displayer
+from Resources.Tkinter_wrapper import Displayer, root, root_width, root_height
 from Display.Picture import Picture
 from Display.Sprite import Sprite
 from Modules.Controller import Controller
+from Modules.Obstacle import Obstacle
 
 rootDisplayer = Displayer(root)
 
@@ -14,7 +14,9 @@ rover = Sprite('Sprites', 'Rover.png')
 rover.resize(150,150)
 rover.display(rootDisplayer, 300, 300)
 
-controller = Controller()
+obstacle1 = Obstacle('Sprites', 'Tree.png', rootDisplayer, (900,300), (10,10), (600,600))
+
+controller = Controller(root)
 controller.set_default_keys(rover)
 
 root.mainloop()

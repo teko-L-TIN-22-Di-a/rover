@@ -1,5 +1,5 @@
-from tkinter import Button, Label, Entry, Listbox, Toplevel
-from Resources.Windows import centerd_window
+from tkinter import Button, Label, Entry, Listbox
+from Resources.Tkinter_wrapper import centerd_window
 
 class widgets:
     def __init__(self,__master, __text, __anchor, __xvalue, __yvalue):

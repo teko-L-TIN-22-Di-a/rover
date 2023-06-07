@@ -20,10 +20,3 @@ class KeyRepeater(tk.Tk):
             self.current[event.keysym]=self.functions.get(event.keysym)
     def keyup(self, event=None):
         self.current.pop(event.keysym,None)
-
-def right():
-    print('right')
-
-game = KeyRepeater()
-game.key_bind("d", right)
-game.mainloop()
