@@ -1,20 +1,21 @@
-from Resources.Tkinter_wrapper import Displayer, root, root_width, root_height
-from Display.Picture import Picture
-from Display.Sprite import Sprite
-from Modules.Controller import Controller
-from Modules.Obstacle import Obstacle
+from tk.tkinter_wrapper import Displayer, root
+from display.maps.map import Map
+from display.rover import Rover
+from movement.controller import Controller
+from display.obstacle import tree, stone, pond
 
 rootDisplayer = Displayer(root)
 
-obstaclemap = Picture('Maps', 'ObstacleMap.png')
-obstaclemap.resize(root_width, root_height)
-obstaclemap.display(rootDisplayer, 0, 0)
+obstaclemap = Map('ObstacleMap.png', rootDisplayer)
 
-rover = Sprite('Sprites', 'Rover.png')
-rover.resize(150,150)
-rover.display(rootDisplayer, 300, 300)
+rover = Rover('Sprites', 'Rover.png')
+rover.display(rootDisplayer, 500, 500)
 
-obstacle1 = Obstacle('Sprites', 'Tree.png', rootDisplayer, (900,300), (10,10), (600,600))
+Tree1 = tree.Tree(rootDisplayer, (900,300))
+
+Stone1 = stone.Stone(rootDisplayer, (400, 600))
+
+Pond1 = pond.Pond(rootDisplayer, (1200,500))
 
 controller = Controller(root)
 controller.set_default_keys(rover)

@@ -11,7 +11,7 @@ class Controller:
         for function in self.window.current.values():
             if function:
                 function()
-        self.window.after(40, self.key_loop) # set repeat time here.
+        self.window.after(150, self.key_loop) # set repeat time here.
     def set_key(self, key : str, method : str):
         keyphrase = f"<{key}>"
         self.window.bind(keyphrase, method)
@@ -27,7 +27,7 @@ class Controller:
         self.window.current.pop(event.keysym,None)
 
     def set_default_keys(self, sprite :str):
-        self.movement_key_bind('w', lambda: sprite.move_directional(-20))
-        self.movement_key_bind('s', lambda: sprite.move_directional(20))
-        self.movement_key_bind('a', lambda: sprite.rotate(10))
-        self.movement_key_bind('d', lambda: sprite.rotate(-10))
+        self.movement_key_bind('w', lambda: sprite.move_directional(-50))
+        self.movement_key_bind('s', lambda: sprite.move_directional(50))
+        self.movement_key_bind('a', lambda: sprite.rotate(90))
+        self.movement_key_bind('d', lambda: sprite.rotate(-90))

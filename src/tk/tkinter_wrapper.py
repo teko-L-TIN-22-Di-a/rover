@@ -1,5 +1,5 @@
 from tkinter import Toplevel, Tk, Canvas
-class centerd_window:
+class Centerd_Window:
     def __init__(self, name, lenght, height):
         self.windowname = name
         self.lenght = lenght

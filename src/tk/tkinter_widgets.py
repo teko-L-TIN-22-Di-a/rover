@@ -1,7 +1,7 @@
 from tkinter import Button, Label, Entry, Listbox
-from Resources.Tkinter_wrapper import centerd_window
+from tk.tkinter_wrapper import Centerd_Window
 
-class widgets:
+class Widgets:
     def __init__(self,__master, __text, __anchor, __xvalue, __yvalue):
         self.master = __master
         self.text = __text
@@ -77,7 +77,7 @@ def widgets_remove(window):
             print('>--widgets remove error--all fine--<')
 
 def widgets_infowindow(name, infotext):
-    widgets_infowindow = centerd_window(name, 200,100)
+    widgets_infowindow = Centerd_Window(name, 200,100)
     widgets_infowindow_label = Label(widgets_infowindow, text = infotext)
     widgets_infowindow_label.pack(side = 'top', padx = 5, pady = 5)
     label_width = widgets_infowindow_label.winfo_width()
