@@ -1,0 +1,33 @@
+@startuml classes
+set namespaceSeparator none
+class "spacerover.map.Map" as spacerover.map.Map {
+  columns : int
+  map_print
+  rows : int
+  check_move(yvalue: int, xvalue: int)
+  format_map_print()
+  mapupdate()
+  move(yvalue: int, xvalue: int, direction)
+  update_rover_position(yvalue: int, xvalue: int, symbol)
+}
+class "spacerover.root_window.RootWindow" as spacerover.root_window.RootWindow {
+  rover_map
+  space_rover
+  window_title
+}
+class "spacerover.rover.Rover" as spacerover.rover.Rover {
+  direction
+  directions : directions
+  speed : int
+  symbol
+  symbols : symbols
+  xvalue : int
+  yvalue : int
+  move()
+  move_forward()
+  turn_left()
+  turn_right()
+  update_position(newPosition)
+  update_symbol()
+}
+@enduml
