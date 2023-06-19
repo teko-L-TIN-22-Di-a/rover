@@ -9,4 +9,5 @@ class Map(Picture):
 
     def display(self, displayer):
         super().display(displayer, 0, 0)
-        self.mover = self.displayer.canvas.create_image(0, 0, anchor = 'nw', image = self.photo)
+        self.displayer.canvas.create_image(0, 0, anchor = 'nw', image = self.photo)
+        print(f'>>> Map {self.file} printed')

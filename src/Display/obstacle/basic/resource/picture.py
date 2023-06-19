@@ -3,7 +3,7 @@ from PIL import ImageTk, Image
 class Picture:
     def __init__(self, folder, file):
         self.angle = 0
-        self.file = f'Display/{folder}{file}'
+        self.file = f'display/{folder}sprites/{file}'
         self.image = Image.open(self.file)
 
     def display(self, displayer, x : int, y : int):

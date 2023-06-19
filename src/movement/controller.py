@@ -1,5 +1,9 @@
+from .hitcalc.hitcalc import hit
+from math import sin, cos, pi
+
 class Controller:
-    def __init__(self,window : str):
+    def __init__(self,window : str, sprite):
+        self.sprite = sprite
         self.window = window
         self.window.current = {}
         self.window.functions = {}
@@ -26,8 +30,30 @@ class Controller:
     def keyup(self, event=None):
         self.window.current.pop(event.keysym,None)
 
-    def set_default_keys(self, sprite :str):
-        self.movement_key_bind('w', lambda: sprite.move_directional(-50))
-        self.movement_key_bind('s', lambda: sprite.move_directional(50))
-        self.movement_key_bind('a', lambda: sprite.rotate(90))
-        self.movement_key_bind('d', lambda: sprite.rotate(-90))
+    def move_directional(self, distance : int):
+        angle = self.sprite.angle
+        move_x = sin(angle*pi/180)*distance
+        move_y = cos(angle*pi/180)*distance
+        
+        if hit((self.sprite.x + move_x, self.sprite.y + move_y)) == True:
+            print('move blocked!')
+        elif hit((self.sprite.x + move_x, self.sprite.y + move_y)) == False:
+            self.sprite.x += move_x
+            self.sprite.y += move_y
+            self.sprite.displayer.canvas.move(self.sprite.mover, move_x, move_y)
+        
+    def rotate(self, angle : int):
+        self.sprite.angle += angle
+        if self.sprite.angle >= 360:
+            self.sprite.angle -= 360
+        if self.sprite.angle <= -360:
+            self.sprite.angle += 360
+        self.sprite.displayer.canvas.delete(self.sprite)
+        self.sprite.display(self.sprite.displayer, self.sprite.x, self.sprite.y)
+        self.sprite.displayer.canvas.tag_raise("Obstacle")
+    
+    def set_default_keys(self):
+        self.movement_key_bind('w', lambda: self.move_directional(-50))
+        self.movement_key_bind('s', lambda: self.move_directional(50))
+        self.movement_key_bind('a', lambda: self.rotate(90))
+        self.movement_key_bind('d', lambda: self.rotate(-90))

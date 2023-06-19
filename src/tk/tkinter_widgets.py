@@ -2,31 +2,31 @@ from tkinter import Button, Label, Entry, Listbox
 from tk.tkinter_wrapper import Centerd_Window
 
 class Widgets:
-    def __init__(self,__master, __text, __anchor, __xvalue, __yvalue):
-        self.master = __master
-        self.text = __text
-        self.anchor = __anchor
-        self.xvalue = __xvalue
-        self.yvalue = __yvalue
+    def __init__(self,master, text, anchor, x, y):
+        self.master = master
+        self.text = text
+        self.anchor = anchor
+        self.x = x
+        self.y = y
         self.output =''
 
     def label(self):
         label = Label(self.master, text = self.text, justify = 'left')
-        label.place(anchor = self.anchor, x = self.xvalue, y = self.yvalue)
+        label.place(anchor = self.anchor, x = self.x, y = self.y)
 
     def button(self, command):
         button = Button(self.master, text = self.text, command = command)
-        button.place(anchor = self.anchor, x = self.xvalue, y = self.yvalue)
+        button.place(anchor = self.anchor, x = self.x, y = self.y)
 
     def sizedbutton(self, command, width):
         button = Button(self.master, text = self.text, command = command, width = width)
-        button.place(anchor = self.anchor, x = self.xvalue, y = self.yvalue)
+        button.place(anchor = self.anchor, x = self.x, y = self.y)
 
     def entry(self):
         label = Label(self.master, text = self.text)
-        label.place(anchor = self.anchor, x = self.xvalue, y = self.yvalue -30)
+        label.place(anchor = self.anchor, x = self.x, y = self.y -30)
         widget = Entry(self.master, justify = 'center', validate = 'key')
-        widget.place(anchor = self.anchor, x = self.xvalue, y = self.yvalue)
+        widget.place(anchor = self.anchor, x = self.x, y = self.y)
         widget.configure(validate='key')
         command = widget.register(self.validation)
         widget.configure(validatecommand= (command, '%S', '%P'))
@@ -49,19 +49,19 @@ class Widgets:
             if labl:
                 labl.configure(text = self.output)
                 dist = self.lb.winfo_height()
-                labl.place(anchor = self.anchor, x = self.xvalue, y = self.yvalue + dist)
+                labl.place(anchor = self.anchor, x = self.x, y = self.y + dist)
         except IndexError:
             return
         except NameError:
             return
 
-    def listbox(self, selection, height_value, output):
-        if height_value == 0:
-            height_value = len(selection)
+    def listbox(self, selection, height, output):
+        if height == 0:
+            height = len(selection)
         label = Label(self.master, text = self.text)
-        label.place(anchor = self.anchor, x = self.xvalue, y = self.yvalue -30)
-        self.lb = Listbox(self.master, height = height_value, justify = 'center')
-        self.lb.place(anchor = self.anchor, x = self.xvalue, y =  self.yvalue)
+        label.place(anchor = self.anchor, x = self.x, y = self.y -30)
+        self.lb = Listbox(self.master, height = height, justify = 'center')
+        self.lb.place(anchor = self.anchor, x = self.x, y =  self.y)
         for select in selection:
             self.lb.insert('end', select)
         self.lb.bind("<<ListboxSelect>>", self.on_select)
