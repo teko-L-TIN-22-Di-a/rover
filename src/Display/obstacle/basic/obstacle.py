@@ -5,9 +5,8 @@ class Obstacle(Picture):
     def __init__(self, folder : str, file : str):
         super().__init__(folder, file)
 
-    def displayO(self, displayer, x: int, y: int):
-        super().display(displayer, x, y)
-        self.displayer.canvas.create_image(x, y, anchor = 'center', image = self.photo, tags = 'Obstacle')
+    def display(self, displayer, x: int, y: int):
+        super().display(displayer, x, y, 'center')
         
     def resize(self, new_width: int, new_height: int):
         return super().resize(new_width, new_height)
