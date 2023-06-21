@@ -42,5 +42,5 @@ x_pos = (screen_width // 2) - (root_width // 2)
 y_pos = (screen_height // 2) - (root_height // 2)
 # Set the position of the window
 root.geometry('{}x{}+{}+{}'.format(root_width, root_height, x_pos, y_pos))
-root.attributes('-fullscreen', True)
+#root.attributes('-fullscreen', True)
 

@@ -50,7 +50,7 @@ class Controller:
             self.sprite.angle += 360
         self.sprite.displayer.canvas.delete(self.sprite)
         self.sprite.display(self.sprite.displayer, self.sprite.x, self.sprite.y)
-        self.sprite.displayer.canvas.tag_raise("Obstacle")
+        self.sprite.displayer.canvas.tag_raise("obstacle")
     
     def set_default_keys(self):
         self.movement_key_bind('w', lambda: self.move_directional(-50))
