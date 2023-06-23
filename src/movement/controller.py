@@ -2,7 +2,7 @@ from .hitcalc.hitcalc import hit
 from math import sin, cos, pi
 
 class Controller:
-    def __init__(self,window : str, sprite):
+    def __init__(self, window : str, sprite):
         self.sprite = sprite
         self.window = window
         self.window.current = {}
@@ -16,6 +16,7 @@ class Controller:
             if function:
                 function()
         self.window.after(150, self.key_loop) # set repeat time here.
+        
     def set_key(self, key : str, method : str):
         keyphrase = f"<{key}>"
         self.window.bind(keyphrase, method)
@@ -31,6 +32,7 @@ class Controller:
         self.window.current.pop(event.keysym,None)
 
     def move_directional(self, distance : int):
+        print('move')
         angle = self.sprite.angle
         move_x = sin(angle*pi/180)*distance
         move_y = cos(angle*pi/180)*distance
@@ -43,6 +45,7 @@ class Controller:
             self.sprite.displayer.canvas.move(self.sprite.mover, move_x, move_y)
         
     def rotate(self, angle : int):
+        print('rotate')
         self.sprite.angle += angle
         if self.sprite.angle >= 360:
             self.sprite.angle -= 360
@@ -52,8 +55,9 @@ class Controller:
         self.sprite.display(self.sprite.displayer, self.sprite.x, self.sprite.y)
         self.sprite.displayer.canvas.tag_raise("obstacle")
     
-    def set_default_keys(self):
-        self.movement_key_bind('w', lambda: self.move_directional(-50))
-        self.movement_key_bind('s', lambda: self.move_directional(50))
-        self.movement_key_bind('a', lambda: self.rotate(90))
-        self.movement_key_bind('d', lambda: self.rotate(-90))
+    def set_movement_keys(self):
+        from menu.configuration.settings.settings import settings
+        self.movement_key_bind(settings['forward'], lambda: self.move_directional(-50))
+        self.movement_key_bind(settings['backward'], lambda: self.move_directional(50))
+        self.movement_key_bind(settings['left'], lambda: self.rotate(90))
+        self.movement_key_bind(settings['right'], lambda: self.rotate(-90))

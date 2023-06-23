@@ -1,5 +1,5 @@
 from tkinter import Button, Label, Entry, Listbox
-from tk.tkinter_wrapper import Centerd_Window
+from tk.tkinter_wrapper import Window
 
 class Widgets:
     def __init__(self,master, text, anchor, x, y):
@@ -19,8 +19,8 @@ class Widgets:
         button.place(anchor = self.anchor, x = self.x, y = self.y)
 
     def sizedbutton(self, command, width):
-        button = Button(self.master, text = self.text, command = command, width = width)
-        button.place(anchor = self.anchor, x = self.x, y = self.y)
+        self.buttons = Button(self.master, text = self.text, command = command, width = width)
+        self.buttons.place(anchor = self.anchor, x = self.x, y = self.y)
 
     def entry(self):
         label = Label(self.master, text = self.text)
@@ -77,7 +77,7 @@ def widgets_remove(window):
             print('>--widgets remove error--all fine--<')
 
 def widgets_infowindow(name, infotext):
-    widgets_infowindow = Centerd_Window(name, 200,100)
+    widgets_infowindow = Window(name, 200,100).create_centerd()
     widgets_infowindow_label = Label(widgets_infowindow, text = infotext)
     widgets_infowindow_label.pack(side = 'top', padx = 5, pady = 5)
     label_width = widgets_infowindow_label.winfo_width()

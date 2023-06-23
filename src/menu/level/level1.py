@@ -1,7 +1,7 @@
-from tk.tkinter_wrapper import Displayer, root
+from tk.tkinter_wrapper import Window, Displayer
+from tk.tkinter_wrapper import screen_width, screen_height
 from display.maps.map import Map
 from display.rover.rover import Rover
-from movement.controller import Controller
 from display.obstacle.tree import Tree
 from display.obstacle import stone, pond
 from display.ui.ui import UI
@@ -10,18 +10,24 @@ def Level1():
 
     print('>>> Start level 1')
 
-    rootCanvas = Displayer(root)
+    gamewindow = Window('Level 1', screen_width, screen_height)
+    gamewindow.create()
+    gamemaster = gamewindow.window
+    gamemaster.focus_force()
+    gamemaster.attributes('-fullscreen', True)
 
-    Map('ObstacleMap.png', rootCanvas)
+    gamewindowCanvas = Displayer(gamewindow)
+
+    Map('ObstacleMap.png', gamewindowCanvas)
 
     rover = Rover()
-    rover.display(rootCanvas, 500, 500)
+    rover.display(gamewindowCanvas, 500, 500)
     
-    UI(root, rover)
+    UI(gamemaster, rover)
     
-    Tree(rootCanvas, (900, 300))
+    Tree(gamewindowCanvas, (900, 300))
 
-    stone.Stone(rootCanvas, (400, 600))
+    stone.Stone(gamewindowCanvas, (400, 600))
 
-    pond.Pond(rootCanvas, (1200,500))
+    pond.Pond(gamewindowCanvas, (1200,500))
     

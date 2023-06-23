@@ -1,4 +1,4 @@
-from tk.tkinter_wrapper import root_width, root_height
+from tk.tkinter_wrapper import screen_width, screen_height
 
 hitlist = []
 
@@ -11,9 +11,9 @@ def hit(position : tuple):
         return True
     elif yvalue < 50:
         return True
-    elif xvalue > root_width-50:
+    elif xvalue > screen_width-50:
         return True
-    elif yvalue > root_height-50:
+    elif yvalue > screen_height-50:
         return True
     else:
         return False
