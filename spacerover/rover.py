@@ -1,5 +1,4 @@
 from enum import Enum
-import map
 
 class Rover:
     directions = Enum('directions', ["up", "right", "down", "left"])
