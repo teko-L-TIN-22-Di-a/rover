@@ -1,5 +1,5 @@
-from tk.tkinter_widgets import Widgets, widgets_remove
-from tk.tkinter_wrapper import root, root_width, root_height
+from tkresource.tkinter_widgets import Widgets, widgets_remove
+from tkresource.tkinter_wrapper import root, root_width, root_height
 from menu.configuration.config import Configuration
 
 def open():

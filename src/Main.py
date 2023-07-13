@@ -1,4 +1,4 @@
-from tk.tkinter_wrapper import root
+from tkresource.tkinter_wrapper import root
 from menu.mainmenu import open
 
 open()

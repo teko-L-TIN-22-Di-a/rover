@@ -1,5 +1,5 @@
-from tk.tkinter_wrapper import Window, Displayer
-from tk.tkinter_wrapper import screen_width, screen_height
+from tkresource.tkinter_wrapper import Window, Displayer
+from tkresource.tkinter_wrapper import screen_width, screen_height
 from display.maps.map import Map
 from display.rover.rover import Rover
 from display.obstacle.tree import Tree

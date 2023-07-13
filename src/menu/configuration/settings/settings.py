@@ -1,14 +1,19 @@
-import os
-from dotenv import load_dotenv, set_key
+import json
 
-load_dotenv()
+savefile = 'menu/configuration/settings/settings.json'
+settingsjson = savefile
 
-settings = {
-    'forward' : os.getenv('MOVE_FORWARD'),
-    'backward' : os.getenv('MOVE_BACKWARD'),
-    'left' : os.getenv('TURN_LEFT'),
-    'right' : os.getenv('TURN_RIGHT')
-}
+class Settings:
+    def __init__(self) -> None:
+        self.keys = {}
+        self.load()
 
-def save_key(key, value):
-    set_key('.env', key, value)
+    def load(self):
+        with open(settingsjson, 'r') as sj:
+            self.keys = json.load(sj)
+
+    def save(self):
+        with open(settingsjson, 'w') as sj:
+            json.dump(self.keys, sj, indent=4)
+
+settings = Settings()

@@ -1,6 +1,6 @@
-from tk.tkinter_wrapper import Window
-from tk.tkinter_widgets import Widgets
-from .settings.settings import settings, save_key
+from tkresource.tkinter_wrapper import Window
+from tkresource.tkinter_widgets import Widgets
+from .settings.settings import settings
 
 class Configuration:
     def __init__(self):
@@ -15,6 +15,7 @@ class Configuration:
 
     def interface(self):
         self.window.create_centerd()
+        keys = settings.keys
         master = self.window.window
         Widgets(master, 'ACTION', 'nw', self.left_anchor, self.first_row).label()
         Widgets(master, 'BUTTON', 'ne', self.right_anchor, self.first_row).label()
@@ -23,23 +24,23 @@ class Configuration:
         Widgets(master, 'ROTATE RIGHT', 'nw', self.left_anchor, self.first_row + 90).label()
         Widgets(master, 'ROTATE LEFT', 'nw', self.left_anchor, self.first_row + 120).label()
 
-        forward_button = Widgets(master, settings['forward'], 'ne', self.right_anchor, self.first_row + 30)
-        forward_button.name = 'MOVE_FORWARD'
+        forward_button = Widgets(master, keys['forward'], 'ne', self.right_anchor, self.first_row + 30)
+        forward_button.name = 'forward'
         forward_button.sizedbutton(None, 5)
         forward_button.buttons.configure(command = lambda : self.button_config(forward_button))
 
-        backward_button = Widgets(master, settings['backward'], 'ne', self.right_anchor, self.first_row + 60)
-        backward_button.name = 'MOVE_BACKWARD'
+        backward_button = Widgets(master, keys['backward'], 'ne', self.right_anchor, self.first_row + 60)
+        backward_button.name = 'backward'
         backward_button.sizedbutton(None, 5)
         backward_button.buttons.configure(command = lambda : self.button_config(backward_button))
 
-        right_button = Widgets(master, settings['right'], 'ne', self.right_anchor, self.first_row + 90)
-        right_button.name = 'TURN_RIGHT'
+        right_button = Widgets(master, keys['right'], 'ne', self.right_anchor, self.first_row + 90)
+        right_button.name = 'right'
         right_button.sizedbutton(None, 5)
         right_button.buttons.configure(command = lambda : self.button_config(right_button))
 
-        left_button = Widgets(master, settings['left'], 'ne', self.right_anchor, self.first_row + 120)
-        left_button.name = 'TURN_LEFT'
+        left_button = Widgets(master, keys['left'], 'ne', self.right_anchor, self.first_row + 120)
+        left_button.name = 'left'
         left_button.sizedbutton(None, 5)
         left_button.buttons.configure(command = lambda : self.button_config(left_button))
 
@@ -58,11 +59,10 @@ class Configuration:
         button_master.bind('<Key>', lambda event, arg = args_to_pass : self.return_key(event, arg[0], arg[1]))
 
     def return_key(self, event, button, master):
-        from .settings.settings import settings
         key = event.keysym
         keys_in_use = []
-        for value in settings:
-            keys = settings[value]
+        for value in settings.keys:
+            keys = settings.keys[value]
             keys_in_use.append(keys)
         if key in keys_in_use:
             Widgets(master, 'Key already in use!', 'center', 100, 60).label()
@@ -70,5 +70,10 @@ class Configuration:
         else:
             self.new_key = key
             button.buttons.configure(text = key)
-            save_key(button.name, key)
+            self.save_keys(button.name, key)
             master.destroy()
+
+    
+    def save_keys(self, key, value):
+        settings.keys[key] = value
+        settings.save()

@@ -1,5 +1,5 @@
 from ..obstacle.basic.resource.picture import Picture
-from tk.tkinter_wrapper import screen_width, screen_height
+from tkresource.tkinter_wrapper import screen_width, screen_height
 
 references = []
 
