@@ -54,7 +54,7 @@ class Controller:
         self.sprite.displayer.canvas.tag_raise("obstacle")
     
     def set_movement_keys(self):
-        from menu.configuration.config import settings
+        from ..menu.configuration.config import settings
         self.movement_key_bind(settings.keys['forward'], lambda: self.move_directional(-50))
         self.movement_key_bind(settings.keys['backward'], lambda: self.move_directional(50))
         self.movement_key_bind(settings.keys['left'], lambda: self.rotate(90))

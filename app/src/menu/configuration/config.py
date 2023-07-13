@@ -1,5 +1,5 @@
-from tkresource.tkinter_wrapper import Window
-from tkresource.tkinter_widgets import Widgets
+from ...tkresource.tkinter_wrapper import Window
+from ...tkresource.tkinter_widgets import Widgets
 from .settings.settings import settings
 
 class Configuration:

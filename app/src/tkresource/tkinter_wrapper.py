@@ -1,4 +1,5 @@
 from tkinter import Toplevel, Tk, Canvas
+
 class Window:
     def __init__(self, name, width, height):
         self.windowname = name

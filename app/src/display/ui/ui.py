@@ -1,6 +1,6 @@
-from tkresource.tkinter_widgets import Widgets
-from tkresource.tkinter_wrapper import root, screen_width
-from movement.controller import Controller
+from ...tkresource.tkinter_widgets import Widgets
+from ...tkresource.tkinter_wrapper import root, screen_width
+from ...movement.controller import Controller
 
 class UI:
     def __init__(self, window, player):

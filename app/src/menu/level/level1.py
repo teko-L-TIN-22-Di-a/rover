@@ -1,10 +1,10 @@
-from tkresource.tkinter_wrapper import Window, Displayer
-from tkresource.tkinter_wrapper import screen_width, screen_height
-from display.maps.map import Map
-from display.rover.rover import Rover
-from display.obstacle.tree import Tree
-from display.obstacle import stone, pond
-from display.ui.ui import UI
+from ...tkresource.tkinter_wrapper import Window, Displayer
+from ...tkresource.tkinter_wrapper import screen_width, screen_height
+from ...display.maps.map import Map
+from ...display.rover.rover import Rover
+from ...display.obstacle.tree import Tree
+from ...display.obstacle import stone, pond
+from ...display.ui.ui import UI
 
 def Level1():
 

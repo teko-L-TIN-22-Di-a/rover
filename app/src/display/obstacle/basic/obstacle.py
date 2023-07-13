@@ -1,5 +1,5 @@
 from .resource.picture import Picture
-from movement.hitcalc.hitcalc import hitlist
+from ....movement.hitcalc.hitcalc import hitlist
 
 references = []
 

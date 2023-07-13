@@ -1,5 +1,5 @@
 from tkinter import Button, Label, Entry, Listbox
-from tkresource.tkinter_wrapper import Window
+from .tkinter_wrapper import Window
 
 class Widgets:
     def __init__(self,master, text, anchor, x, y):

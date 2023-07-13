@@ -1,4 +1,4 @@
-from tkresource.tkinter_wrapper import screen_width, screen_height
+from ...tkresource.tkinter_wrapper import screen_width, screen_height
 
 hitlist = []
 

@@ -1,6 +1,6 @@
 import json
 
-savefile = 'menu/configuration/settings/settings.json'
+savefile = 'app/src/menu/configuration/settings/settings.json'
 settingsjson = savefile
 
 class Settings:
