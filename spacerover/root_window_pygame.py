@@ -1,9 +1,7 @@
 # Example file showing a basic pygame "game loop"
-import os
 from rover import Rover
 from obstacle import Obstacle
 from pygame_wrapper import PygameWrapper
-import pygame
 
 class RootWindowPyGame():    
     rows, cols = (5, 5)
@@ -11,14 +9,6 @@ class RootWindowPyGame():
     obstacles_coordinates = [[60, 455], [600, 40], [800, 900], [890, 620], [780, 900]]
     
     obstacles = []
-    
-    # fences = (
-    #     PygameWrapper.Rect(obstacles_coordinates[0][0], obstacles_coordinates[0][1], 20, 85),
-    #     PygameWrapper.Rect(obstacles_coordinates[1][0], obstacles_coordinates[1][1], 20, 85),
-    #     PygameWrapper.Rect(obstacles_coordinates[2][0], obstacles_coordinates[2][1], 20, 85),
-    #     PygameWrapper.Rect(obstacles_coordinates[3][0], obstacles_coordinates[3][1], 20, 85),
-    #     PygameWrapper.Rect(obstacles_coordinates[4][0], obstacles_coordinates[4][1], 20, 85),
-    # )    
     
     def __init__(self, window_title):
         self.window_title = window_title
@@ -48,12 +38,11 @@ class RootWindowPyGame():
                     running = False
                     
             self.screen.blit(self.background_image, (0,0))  
+            self.load_obstacles()
             
-            self.rover.listen_to_movement(self.obstacles_coordinates)       
+            self.rover.listen_to_movement(self.obstacles)       
             
             self.screen.blit(self.rover.image, self.rover.rect)
-            
-            self.load_obstacles()
             
             self.pygame_wrapper.display_flip()
             

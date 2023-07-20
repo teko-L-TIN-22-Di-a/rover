@@ -9,7 +9,7 @@ Generate class diagrams ./appmap.md
 ## Workflows
 
 * rover can move forward / backwards / left / right. (if one movement should be deactivated, they have to be splitted worklows)
-* rover doesn't hit the 'X'.
+* rover doesn't hit the obstacles.
 
 ## Decisions we made
 

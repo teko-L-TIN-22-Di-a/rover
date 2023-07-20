@@ -1,5 +1,3 @@
-import pygame
-
 class Obstacle:
     def __init__(self, pygame_wrapper):
         self.type = type

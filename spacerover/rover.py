@@ -1,4 +1,5 @@
 from enum import Enum
+from copy import copy
 
 class Rover:
     directions = Enum('directions', ["up", "right", "down", "left"])
@@ -38,22 +39,32 @@ class Rover:
         return keys[self.pygame_wrapper.key_d] or keys[self.pygame_wrapper.key_right]
             
     def move_up(self, collide_list):
-        if self.move_possible(collide_list, (self.rect.right, self.rect.top - self.speed)):
+        if self.move_possible_top(collide_list, self.rect.top - self.speed):
             if self.direction != self.directions.up:
                 self.rotate_image_up()
                 self.direction = self.directions.up
                 
             self.rect.top -= self.speed
+                
             
-    def move_possible(self, collide_list, new_position):
-        for obstacle in collide_list:
-            if obstacle == new_position:
-                return False
-            
+    def move_possible_top(self, obstacles, new_position):
+        current_rect = copy(self.rect)
+        current_rect.top = new_position
+        for ob in obstacles:
+            if current_rect.colliderect(ob.rect):
+                return False            
         return True
-        
+    
+    def move_possible_right(self, obstacles, new_position):
+        current_rect = copy(self.rect)
+        current_rect.right = new_position
+        for ob in obstacles:
+            if current_rect.colliderect(ob.rect):
+                return False            
+        return True
+            
     def move_down(self, collide_list):
-        if self.move_possible(collide_list, (self.rect.right, self.rect.top + self.speed)):
+        if self.move_possible_top(collide_list, self.rect.top + self.speed):
             if self.direction != self.directions.down:
                 self.rotate_image_down()
                 self.direction = self.directions.down
@@ -61,7 +72,7 @@ class Rover:
             self.rect.top += self.speed
         
     def move_right(self, collide_list):
-        if self.move_possible(collide_list, (self.rect.right + self.speed, self.rect.top)):
+        if self.move_possible_right(collide_list, self.rect.right + self.speed):
             if self.direction != self.directions.right:
                 self.rotate_image_right()
                 self.direction = self.directions.right
@@ -69,7 +80,7 @@ class Rover:
             self.rect.right += self.speed
         
     def move_left(self, collide_list):
-        if self.move_possible(collide_list, (self.rect.right - self.speed, self.rect.top)):
+        if self.move_possible_right(collide_list, self.rect.right - self.speed):
             if self.direction != self.directions.left:
                 self.rotate_image_left()
                 self.direction = self.directions.left

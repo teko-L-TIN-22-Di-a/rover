@@ -43,6 +43,7 @@ window is also a class (need inheritance from tk)
 super refers to sibling or parent method statically. self refers to class of the instance dynamically.
 
 ## Naming
+
 <https://realpython.com/python-pep8/#:~:text=Naming%20Styles,-The%20table%20below&text=Use%20a%20lowercase%20single%20letter,with%20underscores%20to%20improve%20readability.&text=Start%20each%20word%20with%20a,not%20separate%20words%20with%20underscores>.
 
 ## classes
