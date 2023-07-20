@@ -2,11 +2,14 @@
 import os
 import pygame
 import gameobject
+import obstacle
 
 class RootWindowPyGame():    
     rows, cols = (5, 5)
     obstacles_coordinates = [0]*rows
     obstacles_coordinates = [[60, 455], [600, 40], [800, 900], [890, 620], [780, 900]]
+    
+    obstacles = []
     
     fences = (
         pygame.Rect(obstacles_coordinates[0][0], obstacles_coordinates[0][1], 20, 85),
@@ -24,8 +27,9 @@ class RootWindowPyGame():
         self.__set_screen()     
         self.__load_background_image()
         self.__load_rover_image()
+        self.__load_tree_image()
         
-        self.rover_object = gameobject.GameObject(self.rover_image, self.rover_position, 10)
+        self.rover_object = gameobject.GameObject(self.rover_image, self.rover_rect, 10)
         
     def __set_screen(self):
         self.screen = pygame.display.set_mode((1920, 1080))
@@ -38,7 +42,13 @@ class RootWindowPyGame():
     def __load_rover_image(self):
         self.rover_image = pygame.image.load('spacerover\\images\\rover.png')
         self.rover_image  = pygame.transform.scale_by(self.rover_image, (0.2, 0.2))
-        self.rover_position = self.rover_image.get_rect().move(1, 2)
+        self.rover_rect = self.rover_image.get_rect().move(1, 2)
+        
+    def __load_tree_image(self):
+        self.tree_image = pygame.image.load('spacerover\\images\\tree.png')
+        self.tree_image  = pygame.transform.scale_by(self.tree_image, (1, 1))
+        self.tree_rect = self.tree_image.get_rect().move(1, 2)
+        
         
     def open(self):
         clock = pygame.time.Clock()
@@ -71,8 +81,14 @@ class RootWindowPyGame():
         pygame.quit()
         
     def load_obstacles(self):
-        for fence in self.fences:
-            pygame.draw.rect(self.screen, pygame.Color('red'), fence)
+        if len(self.obstacles) == 0:
+            self.obstacles.append(obstacle.Obstacle(self.tree_image))
+            
+        for ob in self.obstacles:
+            self.screen.blit(ob.image, ob.rect)
+            
+            if self.rover_object.pos.colliderect(ob.rect):
+                pygame.draw.rect(self.screen, (255,0,0), self.rover_object.pos, 2)
     
     @property
     def window_title(self):
