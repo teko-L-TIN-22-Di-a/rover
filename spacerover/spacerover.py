@@ -1,8 +1,8 @@
-import root_window_pygame
+from root_window_pygame import RootWindowPyGame
 
 def main():    
     app_name = "space rover"
-    root_window = root_window_pygame.RootWindowPyGame(app_name)
+    root_window = RootWindowPyGame(app_name)
     root_window.open()
         
 if __name__ == "__main__":
