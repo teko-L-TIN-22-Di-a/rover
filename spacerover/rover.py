@@ -7,9 +7,9 @@ class Rover:
         self.speed = 10
         self.direction = self.directions.up
         self.pygame_wrapper = pygame_wrapper
-        self.__load_rover_image()
+        self.__load_image()
         
-    def __load_rover_image(self):
+    def __load_image(self):
         self.image = self.pygame_wrapper.load_image('spacerover\\images\\rover.png')
         self.image = self.pygame_wrapper.transform_image(self.image, (0.2, 0.2))
         self.rect = self.image.get_rect().move(1, 2)

@@ -27,7 +27,6 @@ class RootWindowPyGame():
         
         self.__set_screen()
         self.__load_background_image()
-        self.__load_tree_image()
         
         self.rover = Rover(self.pygame_wrapper)
         
@@ -37,12 +36,7 @@ class RootWindowPyGame():
         
     def __load_background_image(self):
         self.background_image = self.pygame_wrapper.load_image('spacerover\images\obstacle_map.png')
-        self.background_image = self.pygame_wrapper.transform_background_image(self.background_image, (self.screen_width, self.screen_height))
-        
-    def __load_tree_image(self):
-        self.tree_image = self.pygame_wrapper.load_image('spacerover\\images\\tree.png')
-        self.tree_image  = self.pygame_wrapper.transform_image(self.tree_image, (1, 1))
-        self.tree_rect = self.tree_image.get_rect().move(1, 2)        
+        self.background_image = self.pygame_wrapper.transform_background_image(self.background_image, (self.screen_width, self.screen_height))    
         
     def open(self):
         clock = self.pygame_wrapper.Clock()
@@ -53,7 +47,7 @@ class RootWindowPyGame():
                 if event.type == self.pygame_wrapper.get_event_type_quit():
                     running = False
                     
-            self.screen.blit(self.background_image, (0,0))     
+            self.screen.blit(self.background_image, (0,0))  
             
             self.rover.listen_to_movement(self.obstacles_coordinates)       
             
@@ -68,7 +62,7 @@ class RootWindowPyGame():
         
     def load_obstacles(self):
         if len(self.obstacles) == 0:
-            self.obstacles.append(Obstacle(self.tree_image))
+            self.obstacles.append(Obstacle(self.pygame_wrapper))
             
         for ob in self.obstacles:
             self.screen.blit(ob.image, ob.rect)
