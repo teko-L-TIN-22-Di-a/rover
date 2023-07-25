@@ -2,4 +2,4 @@
 site_name: spacerover documentation
 
 theme:
-  name: "material"
+  name: mkdocs
