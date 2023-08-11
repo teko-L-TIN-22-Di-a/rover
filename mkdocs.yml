@@ -4,3 +4,7 @@ site_name: spacerover documentation
 theme:
   name: null
   custom_dir: 'cinder'
+
+nav:
+  - Home: docs/index.md
+  - About: about.md
