@@ -3,11 +3,11 @@
 ## Workflows
 
 * rover can move forward / backwards / left / right. (if one movement should be deactivated, they have to be splitted worklows)
-* rover doesn't hit the obstacles.
+* When roves is moved, there has to be a check if move is possible or blocked because of an obstacle.
 
 ## Forbidden Dependencies
 
-* The map -> rover
+* map -> rover
 
 ## Dependencies
 
