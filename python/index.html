@@ -136,16 +136,12 @@
             <li class="second-level"><a href="#constructs-we-use">Constructs we use</a></li>
                 
                 <li class="third-level"><a href="#init">init</a></li>
-                <li class="third-level"><a href="#main">main</a></li>
                 <li class="third-level"><a href="#main-top-level-code-environment">main — Top-level code environment</a></li>
             <li class="second-level"><a href="#modules">Modules</a></li>
                 
             <li class="second-level"><a href="#classes">Classes</a></li>
                 
                 <li class="third-level"><a href="#inheritance-in-python">Inheritance in Python</a></li>
-            <li class="second-level"><a href="#what-is-a-module">What is a module?</a></li>
-                
-                <li class="third-level"><a href="#self-vs-super">self vs super()</a></li>
             <li class="second-level"><a href="#naming-styles">Naming styles</a></li>
                 
                 <li class="third-level"><a href="#single-and-double-underscore">single and double underscore</a></li>
@@ -158,25 +154,21 @@
 <h2 id="constructs-we-use">Constructs we use</h2>
 <h3 id="init"><strong>init</strong></h3>
 <p>Is like the constructor for Java / C#.</p>
-<h3 id="main"><strong>main</strong></h3>
-<p>The start from the application to run.</p>
 <h3 id="main-top-level-code-environment"><strong>main</strong> — Top-level code environment</h3>
 <h4 id="what-is-the-top-level-code-environment">What is the “top-level code environment”?</h4>
 <p><code>__main__</code> is the name of the environment where top-level code is run. It's the first Python module which starts running.
 It's the <code>entry point</code> of the application.</p>
 <p><a href="https://docs.python.org/3/library/__main__.html">source</a></p>
 <h2 id="modules">Modules</h2>
-<p>main is a module <a href="https://docs.python.org/3/tutorial/modules.html#tut-modules">modules</a>.</p>
+<p>A module can be a collection of classes.</p>
 <h2 id="classes">Classes</h2>
 <p>Rover is a class (can be more than one)
 map is also a class
 window is also a class (need inheritance from tk)</p>
 <h3 id="inheritance-in-python">Inheritance in Python</h3>
-<p><a href="https://www.python-lernen.de/vererbung-python.htm">Inheritance</a></p>
-<h2 id="what-is-a-module">What is a module?</h2>
-<p>A module can be a collection of classes.</p>
-<h3 id="self-vs-super">self vs super()</h3>
-<p>super refers to sibling or parent method statically. self refers to class of the instance dynamically.</p>
+<p>See <a href="https://www.python-lernen.de/vererbung-python.htm">Inheritance</a> for more information.</p>
+<p>To call the parent method use the <code>super()</code> keyword.</p>
+<p>To call the current method of the class, use the <code>self</code> keyword.</p>
 <h2 id="naming-styles">Naming styles</h2>
 <table>
 <thead>
