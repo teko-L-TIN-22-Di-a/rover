@@ -1,4 +1,4 @@
-# Architecture
+# Architecture Overview
 
 ## Workflows
 
@@ -15,8 +15,8 @@ Method names should be an extended description on what the method actually does.
 
 ## Class Diagram
 
-![Class Diagram](..\images/classes.svg)
+![Class Diagram](../images/classes.svg)
 
 ## Packages
 
-![Packages](..\images/packages.svg)
+![Packages](../images/packages.svg)

@@ -10,7 +10,7 @@ nav:
   - About: about.md
   - Python: python.md
   - Architecture: 
-    - Overview: architecture\diagrams.md
+    - Overview: architecture\overview.md
     - Diagrams: architecture\diagrams.md
   - mkdocs: mkdocs.md
 
