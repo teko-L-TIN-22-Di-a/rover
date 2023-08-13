@@ -1,4 +1,0 @@
-  name: spacerover
-  packages:
-  - path: spacerover/spacerover.py
-    shallow: true
