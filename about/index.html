@@ -80,6 +80,30 @@
                     </li>
                 
                 
+                
+                    <li >
+                        <a href="../python/">Python</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../appmap/">AppMap</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../architecture/">Architecture</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../mkdocs/">mkdocs</a>
+                    </li>
+                
+                
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -93,8 +117,8 @@
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="next" >
+                    <li >
+                        <a rel="next" href="../python/">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -109,12 +133,24 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#about">About</a></li>
+            <li class="second-level"><a href="#decisions-we-made">Decisions we made</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h1 id="about">About</h1>
-<p><em>tbd</em></p></div>
+<h2 id="decisions-we-made">Decisions we made</h2>
+<ul>
+<li>The Map doesnt care about the rover. There shouldn't be a dependency.</li>
+<li>All imported Modules which are not created by us, will be wrapped. This makes it easy to replace them with other ones and the dependency are clear.</li>
+<li>Every Object should handle it's own stuff. The map shouldn't do stuff for the rover etc.</li>
+<li>Using the <a href="[https://www.programiz.com/python-programming/property]">Property decorator</a></li>
+<li>Sorting of properties, methods (private members etc.)</li>
+<li>Vererbung anschauen</li>
+<li>Methodennamen dienen als zusätzlche Beschreibung für Setzen von Variabeln und Funktionen. Deshalb gibt es teilweise Methoden mit nur einer Zeile. Dadurch
+ist der Code aber einfacher zu verstehen und es ergibt sich in der jeweiligen Klasse einen sauberen Überblick, was die Klasse macht.</li>
+</ul></div>
         
         
     </div>
