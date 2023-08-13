@@ -4,18 +4,16 @@ Here are some [best-practices] for python.
 
 ## Constructs we use
 
-### __init__
+### \_\_init\_\_
 
-Is like the constructor for Java / C#.
+Is the constructor for a class.
 
-### __main__ — Top-level code environment
-
-#### What is the “top-level code environment”?
+### \_\_main\_\_ — Top-level code environment
 
 `__main__` is the name of the environment where top-level code is run. It's the first Python module which starts running.
 It's the `entry point` of the application.
 
-[source]
+See [source] for more information.
 
 ### Property Decorator
 
