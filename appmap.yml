@@ -1,0 +1,7 @@
+appmap_dir: tmp\appmap
+language: python
+name: rover
+packages:
+- path: spacerover
+- path: cinder
+- path: unit
