@@ -1,11 +1,5 @@
 # Documentation
 
-Here are some [best-practices] for python.
-
-[best-practices]: https://data-flair.training/blogs/python-best-practices
-
-Generate class diagrams ./appmap.md
-
 ## Workflows
 
 * rover can move forward / backwards / left / right. (if one movement should be deactivated, they have to be splitted worklows)

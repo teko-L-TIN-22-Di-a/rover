@@ -6,5 +6,12 @@ theme:
   custom_dir: 'cinder'
 
 nav:
-  - Home: docs/index.md
+  - Home: index.md
   - About: about.md
+  - Python: python.md
+  - AppMap: appmap.md
+  - Architecture: architecture.md
+  - mkdocs: mkdocs.md
+
+extra:
+  collapse_toc: true

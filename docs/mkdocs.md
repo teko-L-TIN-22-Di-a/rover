@@ -17,4 +17,10 @@ mkdocs serve
 
 For a full tutorial click [here].
 
+## Cinder Theme
+
+[cinder] is a theme we used to build our documentation.  
+
+[cinder]: https://twardoch.github.io/clinker-mktheme/
+
 [here]: https://realpython.com/python-project-documentation-with-mkdocs/

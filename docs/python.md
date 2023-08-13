@@ -1,5 +1,11 @@
 # How we used Python
 
+Here are some [best-practices] for python.
+
+[best-practices]: https://data-flair.training/blogs/python-best-practices
+
+Generate class diagrams ./appmap.md
+
 ## Constructs we use
 
 ### __init__
