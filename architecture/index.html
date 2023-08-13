@@ -135,6 +135,12 @@
         <li class="first-level active"><a href="#architecture">Architecture</a></li>
             <li class="second-level"><a href="#workflows">Workflows</a></li>
                 
+            <li class="second-level"><a href="#forbidden-dependencies">Forbidden Dependencies</a></li>
+                
+            <li class="second-level"><a href="#dependencies">Dependencies</a></li>
+                
+            <li class="second-level"><a href="#method-naming">Method naming</a></li>
+                
             <li class="second-level"><a href="#class-diagram">Class Diagram</a></li>
                 
             <li class="second-level"><a href="#packages">Packages</a></li>
@@ -149,6 +155,14 @@
 <li>rover can move forward / backwards / left / right. (if one movement should be deactivated, they have to be splitted worklows)</li>
 <li>rover doesn't hit the obstacles.</li>
 </ul>
+<h2 id="forbidden-dependencies">Forbidden Dependencies</h2>
+<ul>
+<li>The map -&gt; rover</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<p>All imported Modules which are not created by us, will be wrapped. This makes it easy to replace them with other ones and the dependency are clear.</p>
+<h2 id="method-naming">Method naming</h2>
+<p>Method names should be an extended description on what the method actually does. Long method names are allowed.</p>
 <h2 id="class-diagram">Class Diagram</h2>
 <p><img alt="Class Diagram" src="../images/classes.svg" /></p>
 <h2 id="packages">Packages</h2>
