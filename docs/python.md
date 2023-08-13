@@ -19,7 +19,7 @@ It's the `entry point` of the application.
 
 ## Modules
 
-main is a module [modules].
+A module can be a collection of classes.
 
 ## Classes
 
@@ -29,15 +29,11 @@ window is also a class (need inheritance from tk)
 
 ### Inheritance in Python
 
-[Inheritance]
+See [Inheritance] for more information.
 
-## What is a module?
+To call the parent method use the `super()` keyword.
 
-A module can be a collection of classes.
-
-### self vs super()
-
-super refers to sibling or parent method statically. self refers to class of the instance dynamically.
+To call the current method of the class, use the `self` keyword.
 
 ## Naming styles
 
@@ -64,7 +60,6 @@ super refers to sibling or parent method statically. self refers to class of the
 Single Trailing Underscore( var_ ): Used by convention to avoid naming conflicts with Python keywords. Double Leading Underscore( __var ): Triggers name mangling when used in a class context. Enforced by the Python interpreter.
 
 [Inheritance ]: https://www.python-lernen.de/vererbung-python.htm
-[modules]: https://docs.python.org/3/tutorial/modules.html#tut-modules
 [source]: https://docs.python.org/3/library/__main__.html
 [best-practices]: https://data-flair.training/blogs/python-best-practices
 [Real Pyhton naming styles]: https://realpython.com/python-pep8/#:~:text=Naming%20Styles,-The%20table%20below&text=Use%20a%20lowercase%20single%20letter,with%20underscores%20to%20improve%20readability.&text=Start%20each%20word%20with%20a,not%20separate%20words%20with%20underscores
