@@ -17,6 +17,10 @@ It's the `entry point` of the application.
 
 [source]
 
+### Property Decorator
+
+For creating properties, we used the [Property Decorator].
+
 ## Modules
 
 A module can be a collection of classes.
@@ -37,6 +41,8 @@ To call the current method of the class, use the `self` keyword.
 
 ## Naming styles
 
+### Overview
+
 | Type                       | Public                           | Internal                                                                    |
 | -------------------------- | -------------------------------- | --------------------------------------------------------------------------- |
 | Packages                   | lowernounder                     |                                                                             |
@@ -55,7 +61,7 @@ To call the current method of the class, use the `self` keyword.
 
 [Private variables] doesn't exists in python, you just give them a different name.
 
-### single and double underscore
+### Single and double underscore
 
 Single Trailing Underscore( var_ ): Used by convention to avoid naming conflicts with Python keywords. Double Leading Underscore( __var ): Triggers name mangling when used in a class context. Enforced by the Python interpreter.
 
@@ -64,3 +70,4 @@ Single Trailing Underscore( var_ ): Used by convention to avoid naming conflicts
 [best-practices]: https://data-flair.training/blogs/python-best-practices
 [Real Pyhton naming styles]: https://realpython.com/python-pep8/#:~:text=Naming%20Styles,-The%20table%20below&text=Use%20a%20lowercase%20single%20letter,with%20underscores%20to%20improve%20readability.&text=Start%20each%20word%20with%20a,not%20separate%20words%20with%20underscores
 [Private variables]: https://www.scaler.com/topics/python-private-variables/
+[Property decorator]: [https://www.programiz.com/python-programming/property]
