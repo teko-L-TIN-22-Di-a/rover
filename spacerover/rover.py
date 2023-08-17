@@ -1,5 +1,6 @@
 from enum import Enum
 from copy import copy
+from obstacle import Obstacle
 
 class Rover:
     directions = Enum('directions', ["up", "right", "down", "left"])
@@ -15,16 +16,16 @@ class Rover:
         self.image = self.pygame_wrapper.transform_image(self.image, (0.2, 0.2))
         self.rect = self.image.get_rect().move(1, 2)
         
-    def listen_to_movement(self, obstacles_coordinates):
+    def listen_to_movement(self, obstacles: Obstacle=[]):
         keys = self.pygame_wrapper.get_key_pressed()
         if self.keys_move_up_pressed(keys):
-            self.move_up(obstacles_coordinates)
+            self.move_up(obstacles)
         if self.keys_move_left_pressed(keys):
-            self.move_left(obstacles_coordinates)
+            self.move_left(obstacles)
         if self.keys_move_down_pressed(keys):
-            self.move_down(obstacles_coordinates)
+            self.move_down(obstacles)
         if self.keys_move_right_pressed(keys):
-            self.move_right(obstacles_coordinates)
+            self.move_right(obstacles)
             
     def keys_move_up_pressed(self, keys):
         return keys[self.pygame_wrapper.key_w] or keys[self.pygame_wrapper.key_up]
@@ -52,7 +53,7 @@ class Rover:
         current_rect.top = new_position
         for ob in obstacles:
             if current_rect.colliderect(ob.rect):
-                return False            
+                return False  
         return True
     
     def move_possible_right(self, obstacles, new_position):
@@ -118,5 +119,10 @@ class Rover:
             self.image = self.pygame_wrapper.rotate_image(self.image, 270)
         if self.direction == self.directions.right:
             self.image = self.pygame_wrapper.rotate_image(self.image, 180)
-        
-        
+    
+    @property
+    def startpoint(self):
+        return self.startpoint
+    @startpoint.setter
+    def startpoint(self, value):
+        self.rect = value

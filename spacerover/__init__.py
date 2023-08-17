@@ -1,3 +1,3 @@
-__all__ = ['RootWindow', 'Rover', 'RootWindowPyGame', 'PygameWrapper', 'Obstacle']
+__all__ = ['RootWindow', 'Rover', 'LevelOne', 'PygameWrapper', 'Obstacle']
 
 # __version__ = VERSION

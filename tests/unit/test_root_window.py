@@ -1,9 +1,9 @@
 from unittest import TestCase
-from spacerover import root_window_pygame
+from spacerover import level_one
 
 class TestSpacerover(TestCase):
     def setUp(self):
-        self.root_window_pygame = root_window_pygame.RootWindowPyGame("space rover")
+        self.root_window_pygame = level_one.LevelOne("space rover")
         
         
 class TestInit(TestSpacerover):
