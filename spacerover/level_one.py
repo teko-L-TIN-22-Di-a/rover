@@ -8,10 +8,8 @@ class LevelOne():
     rows, cols = (5, 5)    
     obstacles = []
     
-    def __init__(self, window_title):
-        self.window_title = window_title
+    def __init__(self):
         self.pygame_wrapper = PygameWrapper()
-        self.pygame_wrapper.set_window_caption(window_title)
         self.font = pygame.font.SysFont("arialblack", 40)
         self.TEXT_COL = (255, 255, 255)
         self.game_paused = False
@@ -40,8 +38,7 @@ class LevelOne():
         clock = self.pygame_wrapper.Clock()
         running = True      
 
-        while running:
-            
+        while running:            
             if self.game_paused == True:
                 pass
             
