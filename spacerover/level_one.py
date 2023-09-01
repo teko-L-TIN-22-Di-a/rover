@@ -13,6 +13,7 @@ class LevelOne():
         self.font = pygame.font.SysFont("arialblack", 40)
         self.TEXT_COL = (255, 255, 255)
         self.game_paused = False
+        self.titleFont = pygame.font.SysFont("Arial", 150)
         
         self.__set_screen()
         self.__load_background_image()
@@ -50,17 +51,26 @@ class LevelOne():
                     
             self.screen.blit(self.background_image, (0,0))  
             self.screen.blit(self.startpoint_image, self.startpoint_image_rect)
+            self.screen.blit(self.endpoint_image, self.endpoint_image_rect)
             
             self.draw_obstacles()
             
-            self.rover.listen_to_movement(self.obstacles)       
-            
-            self.screen.blit(self.rover.image, self.rover.rect)            
+            self.rover.listen_to_movement(self.endpoint_image_rect, self.obstacles)
+            if self.rover.endpoint_reached:
+                self.draw_text('FINISH', self.titleFont, (255,255,255), self.screen, 720, 350)
+                           
+            self.screen.blit(self.rover.image, self.rover.rect)
             
             self.pygame_wrapper.display_flip()
             
             dt = clock.tick(60) / 1000
         self.pygame_wrapper.quit()
+        
+    def draw_text(self, text, font, color, surface, x, y):
+        textobj = font.render(text, 1, color)
+        textrect = textobj.get_rect()
+        textrect.topleft = (x, y)
+        surface.blit(textobj, textrect)
         
     def load_startpoint(self):
         self.startpoint_image = self.pygame_wrapper.load_image('spacerover\\images\\start.png')

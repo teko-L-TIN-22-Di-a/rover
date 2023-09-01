@@ -1,4 +1,5 @@
 import pygame
+import sys
 from typing import Sequence, Tuple, Union
 from typing_extensions import Literal as Literal
 from pygame.math import Vector2
@@ -50,6 +51,10 @@ class PygameWrapper:
     
     def rotate_image(self, image, angle):
         return pygame.transform.rotate(image, angle)
+    
+    def quit_game(self):
+        pygame.quit()
+        sys.exit()
        
     @property
     def key_w(self):
