@@ -2,9 +2,9 @@ import pygame, sys
 from level_one import LevelOne
 from pygame_wrapper import PygameWrapper
 
-click = False
-
 class MainMenu():
+    click = False
+    
     def __init__(self):
         self.pygame_wrapper = PygameWrapper()
         self.mainClock = pygame.time.Clock()
