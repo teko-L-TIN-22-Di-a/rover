@@ -1,0 +1,18 @@
+
+site_name: spacerover documentation
+
+theme:
+  name: null
+  custom_dir: 'cinder'
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Python: python.md
+  - Architecture: 
+    - Overview: architecture\overview.md
+    - Diagrams: architecture\diagrams.md
+  - mkdocs: mkdocs.md
+
+extra:
+  collapse_toc: true
