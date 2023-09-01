@@ -41,13 +41,13 @@ class MainMenu():
             if button_2.collidepoint((mx, my)):
                 if click:
                     self.options()
+
             pygame.draw.rect(self.screen, (129, 1, 138), button_1)
             pygame.draw.rect(self.screen, (129, 1, 138), button_2)
     
             self.draw_text('SPACE ROVER', self.titleFont, (255,255,255), self.screen, 720, 250)
             self.draw_text('PLAY', self.font, (255,255,255), self.screen, self.buttonLocationLeft + 15, self.buttonLocationStartTop + 15)
             self.draw_text('QUIT', self.font, (255,255,255), self.screen, self.buttonLocationLeft + 15, self.buttonLocationQuitTop + 15)
-
 
             click = False
             for event in pygame.event.get():
@@ -72,21 +72,10 @@ class MainMenu():
     def game(self):
         level_one = LevelOne()
         level_one.open()
+        pygame.quit()
+        sys.exit()
 
     def options(self):
-        running = True
-        while running:
-            self.screen.fill((0,0,0))
-    
-            self.draw_text('OPTIONS SCREEN', self.font, (255, 255, 255), self.screen, 20, 20)
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        running = False
-        
-            pygame.display.update()
-            self.mainClock.tick(60)
+        pygame.quit()
+        sys.exit()
  
