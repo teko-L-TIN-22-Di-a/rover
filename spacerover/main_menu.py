@@ -3,7 +3,6 @@ from level_one import LevelOne
 from pygame_wrapper import PygameWrapper
 
 class MainMenu():
-    click = False
     
     def __init__(self):
         self.pygame_wrapper = PygameWrapper()
@@ -18,6 +17,8 @@ class MainMenu():
         surface.blit(textobj, textrect)
         
     def open(self):
+        click = False
+        
         self.__set_screen()
         
         running = True   
