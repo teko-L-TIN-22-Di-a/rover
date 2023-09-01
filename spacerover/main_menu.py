@@ -2,17 +2,14 @@ import pygame, sys
 from level_one import LevelOne
 from pygame_wrapper import PygameWrapper
 
-
- 
-# A variable to check for the status later
 click = False
- 
-# Main container function that holds the buttons and game functions
+
 class MainMenu():
     def __init__(self):
         self.pygame_wrapper = PygameWrapper()
         self.mainClock = pygame.time.Clock()
-        self.font = pygame.font.SysFont(None, 30)
+        self.font = pygame.font.SysFont("Arial", 20)
+        self.titleFont = pygame.font.SysFont("Arial", 50)
         
     def draw_text(self, text, font, color, surface, x, y):
         textobj = font.render(text, 1, color)
@@ -21,31 +18,35 @@ class MainMenu():
         surface.blit(textobj, textrect)
         
     def open(self):
-        running = True
-        while running:
-            self.__set_screen()
+        self.__set_screen()
+        
+        running = True   
             
-            self.draw_text('Main Menu', self.font, (0,0,0), self.screen, 250, 40)
-    
+        buttonWidth = 200
+        buttonHeight = 50
+        
+        self.buttonLocationLeft = self.screen_width / 2 - buttonWidth
+        self.buttonLocationStartTop = self.screen_height / 2 - buttonHeight
+        self.buttonLocationQuitTop = self.screen_height / 2 + (buttonHeight*3) 
+
+        button_1 = pygame.Rect(self.buttonLocationLeft, self.buttonLocationStartTop, buttonWidth, buttonHeight)
+        button_2 = pygame.Rect(self.buttonLocationLeft, self.buttonLocationQuitTop, buttonWidth, buttonHeight)
+        
+        while running:                
             mx, my = pygame.mouse.get_pos()
 
-            #creating buttons
-            button_1 = pygame.Rect(200, 100, 200, 50)
-            button_2 = pygame.Rect(200, 180, 200, 50)
-
-            #defining functions when a certain button is pressed
             if button_1.collidepoint((mx, my)):
                 if click:
                     self.game()
             if button_2.collidepoint((mx, my)):
                 if click:
                     self.options()
-            pygame.draw.rect(self.screen, (255, 0, 0), button_1)
-            pygame.draw.rect(self.screen, (255, 0, 0), button_2)
+            pygame.draw.rect(self.screen, (129, 1, 138), button_1)
+            pygame.draw.rect(self.screen, (129, 1, 138), button_2)
     
-            #writing text on top of button
-            self.draw_text('PLAY', self.font, (255,255,255), self.screen, 270, 115)
-            self.draw_text('OPTIONS', self.font, (255,255,255), self.screen, 250, 195)
+            self.draw_text('SPACE ROVER', self.titleFont, (255,255,255), self.screen, 720, 250)
+            self.draw_text('PLAY', self.font, (255,255,255), self.screen, self.buttonLocationLeft + 15, self.buttonLocationStartTop + 15)
+            self.draw_text('QUIT', self.font, (255,255,255), self.screen, self.buttonLocationLeft + 15, self.buttonLocationQuitTop + 15)
 
 
             click = False
