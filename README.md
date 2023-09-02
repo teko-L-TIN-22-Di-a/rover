@@ -1,6 +1,7 @@
 # Space Rover
 
-[![space rover app CI](https://github.com/teko-L-TIN-22-Di-a/rover/actions/workflows/rover-CI.yml/badge.svg?branch=main)](https://github.com/teko-L-TIN-22-Di-a/rover/actions/workflows/rover-CI.yml) | [![pages-build-deployment](https://github.com/teko-L-TIN-22-Di-a/rover/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/teko-L-TIN-22-Di-a/rover/actions/workflows/pages/pages-build-deployment)
+[![space rover app CI](https://github.com/teko-L-TIN-22-Di-a/rover/actions/workflows/rover-CI.yml/badge.svg?branch=main)](https://github.com/teko-L-TIN-22-Di-a/rover/actions/workflows/rover-CI.yml)
+[![pages-build-deployment](https://github.com/teko-L-TIN-22-Di-a/rover/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/teko-L-TIN-22-Di-a/rover/actions/workflows/pages/pages-build-deployment)
 
 A little rover project
 This is a little rover game, which was created from two [Teko] Students from Lucerne.
