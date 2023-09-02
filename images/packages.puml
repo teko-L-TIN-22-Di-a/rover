@@ -2,18 +2,23 @@
 set namespaceSeparator none
 package "spacerover" as spacerover {
 }
+package "spacerover.level_one" as spacerover.level_one {
+}
 package "spacerover.main" as spacerover.main {
+}
+package "spacerover.main_menu" as spacerover.main_menu {
 }
 package "spacerover.obstacle" as spacerover.obstacle {
 }
 package "spacerover.pygame_wrapper" as spacerover.pygame_wrapper {
 }
-package "spacerover.root_window_pygame" as spacerover.root_window_pygame {
-}
 package "spacerover.rover" as spacerover.rover {
 }
-spacerover.main --> spacerover.root_window_pygame
-spacerover.root_window_pygame --> spacerover.obstacle
-spacerover.root_window_pygame --> spacerover.pygame_wrapper
-spacerover.root_window_pygame --> spacerover.rover
+spacerover.level_one --> spacerover.obstacle
+spacerover.level_one --> spacerover.pygame_wrapper
+spacerover.level_one --> spacerover.rover
+spacerover.main --> spacerover.main_menu
+spacerover.main_menu --> spacerover.level_one
+spacerover.main_menu --> spacerover.pygame_wrapper
+spacerover.rover --> spacerover.obstacle
 @enduml

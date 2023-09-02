@@ -1,5 +1,51 @@
 @startuml classes
 set namespaceSeparator none
+class ".EnumMeta" as .EnumMeta {
+}
+class ".Union" as .Union {
+}
+class "spacerover.level_one.LevelOne" as spacerover.level_one.LevelOne {
+  TEXT_COL : tuple
+  background_image
+  background_image
+  cols : int
+  endpoint_image
+  endpoint_image_rect
+  font
+  game_paused : bool
+  obstacles : list
+  pygame_wrapper
+  rover
+  rows : int
+  screen
+  screen_height
+  screen_width
+  startpoint_image
+  startpoint_image_rect
+  titleFont
+  window_title
+  draw_obstacles()
+  draw_text(text, font, text_col, x, y)
+  load_endpoint()
+  load_obstacles()
+  load_startpoint()
+  open()
+}
+class "spacerover.main_menu.MainMenu" as spacerover.main_menu.MainMenu {
+  buttonLocationLeft
+  buttonLocationQuitTop
+  buttonLocationStartTop
+  font
+  pygame_wrapper
+  screen
+  screen_height
+  screen_width
+  titleFont
+  draw_text(text, font, color, surface, x, y)
+  game()
+  open()
+  options()
+}
 class "spacerover.obstacle.Obstacle" as spacerover.obstacle.Obstacle {
   image
   pygame_wrapper
@@ -8,7 +54,7 @@ class "spacerover.obstacle.Obstacle" as spacerover.obstacle.Obstacle {
   draw(screen)
 }
 class "spacerover.pygame_wrapper.PygameWrapper" as spacerover.pygame_wrapper.PygameWrapper {
-  Coordinate : Union
+  Coordinate
   key_a
   key_d
   key_down
@@ -19,56 +65,60 @@ class "spacerover.pygame_wrapper.PygameWrapper" as spacerover.pygame_wrapper.Pyg
   key_w
   Clock()
   Rect(left: float, top: float, width: float, height: float)
+  create_button(button_location_left: int, button_location_top: int, button_width: int, button_height: int)
+  create_font(font: str, fontSize: int)
   display_flip()
   display_set_mode(size: Coordinate)
+  display_update()
   draw_rect(color, rect, width: int)
   get_event()
+  get_event_type_kescape()
+  get_event_type_keydown()
+  get_event_type_mousebuttondown()
   get_event_type_quit()
   get_key_pressed()
+  get_mouse_position()
   load_image(image_path: str)
   quit()
+  quit_game()
   rotate_image(image, angle)
   set_window_caption(window_title: str)
   transform_background_image(image, factor)
   transform_image(image, factor)
 }
-class "spacerover.root_window_pygame.LevelOne" as spacerover.root_window_pygame.LevelOne {
-  background_image
-  background_image
-  cols : int
-  obstacles : list
-  obstacles_coordinates : list
-  pygame_wrapper
-  rover
-  rows : int
-  screen
-  screen_height
-  screen_width
-  window_title
-  window_title
-  load_obstacles()
-  open()
-}
 class "spacerover.rover.Rover" as spacerover.rover.Rover {
   direction
-  directions : directions
+  directions
+  endpoint_reached
+  endpoint_reached : bool
   image
   pygame_wrapper
   rect
   speed : int
+  hit_endpoint(endpoint)
   keys_move_down_pressed(keys)
   keys_move_left_pressed(keys)
   keys_move_right_pressed(keys)
   keys_move_up_pressed(keys)
-  listen_to_movement(obstacles_coordinates)
-  move_down(collide_list)
-  move_left(collide_list)
-  move_possible(collide_list, new_position)
-  move_right(collide_list)
-  move_up(collide_list)
+  listen_to_movement(endpoint, obstacles: Obstacle)
+  move_down(collide_list, endpoint)
+  move_left(collide_list, endpoint)
+  move_possible_right(obstacles, new_position)
+  move_possible_top(obstacles, new_position)
+  move_right(collide_list, endpoint)
+  move_up(collide_list, endpoint)
   rotate_image_down()
   rotate_image_left()
   rotate_image_right()
   rotate_image_up()
 }
+class "spacerover.rover.directions" as spacerover.rover.Rover.directions {
+  down
+  left
+  right
+  up
+}
+spacerover.rover.Rover.directions --|> .EnumMeta
+.Union --* spacerover.pygame_wrapper.PygameWrapper : Coordinate
+spacerover.rover.Rover.directions --* spacerover.rover.Rover : directions
 @enduml
