@@ -9,9 +9,9 @@ If you're new to pyhton, here's a guide how to contribute to our repository and 
 
 We use the [Gitflow Workflow]. The first thing you need to do is create a [fork] of our repository.
 
-[images/gitflow.md]
+![Gitflow](./images/gitflow.png)
 
-## 2. Clone repository
+### 2. Clone repository
 
 Next step, you need to [clone] your forked repository to your local machine.
 
@@ -19,23 +19,23 @@ Next step, you need to [clone] your forked repository to your local machine.
 git clone <repositoryUrl>
 ```
 
-## Setup your environment
+### 3. Setup your environment
 
 We recommend working with Visual Studio Code. Have a look into the [vs code installation guide] and follow the steps.
 
-## 3. Install dependencies
+### 4. Install dependencies
 
 Download latest [pyhton] version and click through installation. Maybe you have to restart your machine after this step.
 
 Run the following commands to install the dependencies we used.
 
-### PyGame
+#### PyGame
 
 ``` ps
 pip install pygame
 ```
 
-### MkDocs
+#### MkDocs
 
 ``` ps
 pip install mkdocs
