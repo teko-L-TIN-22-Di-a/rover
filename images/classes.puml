@@ -32,7 +32,7 @@ class "spacerover.pygame_wrapper.PygameWrapper" as spacerover.pygame_wrapper.Pyg
   transform_background_image(image, factor)
   transform_image(image, factor)
 }
-class "spacerover.root_window_pygame.RootWindowPyGame" as spacerover.root_window_pygame.RootWindowPyGame {
+class "spacerover.root_window_pygame.LevelOne" as spacerover.root_window_pygame.LevelOne {
   background_image
   background_image
   cols : int
