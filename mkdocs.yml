@@ -7,7 +7,6 @@ theme:
 
 nav:
   - Home: index.md
-  - About: about.md
   - Python: python.md
   - Architecture: 
     - Overview: architecture\overview.md
