@@ -7,12 +7,15 @@ theme:
 
 nav:
   - Home: index.md
-  - About: about.md
+  - Releases: 
+    - Overview: releases\overview.md
+    - 1.0.0: releases\1.0.0.md
   - Python: python.md
   - Architecture: 
     - Overview: architecture\overview.md
     - Diagrams: architecture\diagrams.md
-  - mkdocs: mkdocs.md
+  - MkDocs: mkdocs.md
+  - Contribute: contribute.md
 
 extra:
   collapse_toc: true
