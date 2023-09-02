@@ -7,7 +7,7 @@ A big thank you to our teacher Bruno Hammer who accompanied us through this work
 In this documentation we only describe the technical rules and architecture, everything that is code related is described here.  
 We also created a projectmanagement documentation in which is the process described about everything project related. We deliberately made a cut so that we have a clear separation between code and project.
 
-This codebase is not intendet to get updated soon. But feel free to send us your improvements if you want to. We are open for new ideas.
+This codebase is not intendet to get updated soon. But feel free to send us your improvements if you want to. We are open for new ideas. For more information have a look at the [contribute page].
 
 ## About
 
@@ -18,3 +18,4 @@ There should also be a ranking at the end of the game, to compare the time with 
 Adding some soundeffects is also something we're tinking of implementing.
 
 [TEKO Schweizerische Fachschule]: https://www.teko.ch/
+[contribute page]: contribute.md
