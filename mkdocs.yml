@@ -8,8 +8,8 @@ theme:
 nav:
   - Home: index.md
   - Releases: 
-    - Overview: release_notes\overview.md
-    - 1.0.0: release_notes\1.0.0.md
+    - Overview: releases\overview.md
+    - 1.0.0: releases\1.0.0.md
   - Python: python.md
   - Architecture: 
     - Overview: architecture\overview.md

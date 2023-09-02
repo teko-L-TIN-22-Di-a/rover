@@ -22,5 +22,10 @@ For more information read the [SemVer Documentation].
 | ------- | ------------------------------------------- | ------------ |
 | [1.0.0] | Prototype created with a modular codebasis. | _tbd_        |
 
+## How to release
+
+To create a release follow the [gitflow release documentation].
+
 [SemVer Documentation]: https://semver.org/
+[gitflow release documentation]: https://git-flow.readthedocs.io/en/latest/releases.html
 [1.0.0]: 1.0.0.md
