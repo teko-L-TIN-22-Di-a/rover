@@ -3,6 +3,6 @@
 ## Pyreverse
 
 Generate Class Diagram with [pyreverse].  
-`pyreverse -o puml spacerover -m y`
+`pyreverse -ASmy spacerover -o puml -m n`
 
 [pyreverse]: https://pylint.readthedocs.io/en/latest/pyreverse.html
