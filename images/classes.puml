@@ -1,10 +1,8 @@
 @startuml classes
 set namespaceSeparator none
-class ".EnumMeta" as .EnumMeta {
+class "EnumMeta" as .EnumMeta {
 }
-class ".Union" as .Union {
-}
-class "spacerover.level_one.LevelOne" as spacerover.level_one.LevelOne {
+class "LevelOne" as spacerover.level_one.LevelOne {
   TEXT_COL : tuple
   background_image
   background_image
@@ -31,7 +29,7 @@ class "spacerover.level_one.LevelOne" as spacerover.level_one.LevelOne {
   load_startpoint()
   open()
 }
-class "spacerover.main_menu.MainMenu" as spacerover.main_menu.MainMenu {
+class "MainMenu" as spacerover.main_menu.MainMenu {
   buttonLocationLeft
   buttonLocationQuitTop
   buttonLocationStartTop
@@ -46,14 +44,14 @@ class "spacerover.main_menu.MainMenu" as spacerover.main_menu.MainMenu {
   open()
   options()
 }
-class "spacerover.obstacle.Obstacle" as spacerover.obstacle.Obstacle {
+class "Obstacle" as spacerover.obstacle.Obstacle {
   image
   pygame_wrapper
   rect
   type : type
   draw(screen)
 }
-class "spacerover.pygame_wrapper.PygameWrapper" as spacerover.pygame_wrapper.PygameWrapper {
+class "PygameWrapper" as spacerover.pygame_wrapper.PygameWrapper {
   Coordinate
   key_a
   key_d
@@ -86,7 +84,7 @@ class "spacerover.pygame_wrapper.PygameWrapper" as spacerover.pygame_wrapper.Pyg
   transform_background_image(image, factor)
   transform_image(image, factor)
 }
-class "spacerover.rover.Rover" as spacerover.rover.Rover {
+class "Rover" as spacerover.rover.Rover {
   direction
   directions
   endpoint_reached
@@ -112,7 +110,9 @@ class "spacerover.rover.Rover" as spacerover.rover.Rover {
   rotate_image_right()
   rotate_image_up()
 }
-class "spacerover.rover.directions" as spacerover.rover.Rover.directions {
+class "Union" as .Union {
+}
+class "directions" as spacerover.rover.Rover.directions {
   down
   left
   right
