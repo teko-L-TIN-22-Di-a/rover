@@ -14,8 +14,8 @@ nav:
   - Architecture: 
     - Overview: architecture\overview.md
     - Diagrams: architecture\diagrams.md
-  - mkdocs: mkdocs.md
-  - contribute: contribute.md
+  - MkDocs: mkdocs.md
+  - Contribute: contribute.md
 
 extra:
   collapse_toc: true
