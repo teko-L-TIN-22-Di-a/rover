@@ -1,4 +1,3 @@
-import pygame, sys
 from level_one import LevelOne
 from pygame_wrapper import PygameWrapper
 
@@ -6,15 +5,8 @@ class MainMenu():
     
     def __init__(self):
         self.pygame_wrapper = PygameWrapper()
-        self.mainClock = pygame.time.Clock()
-        self.font = pygame.font.SysFont("Arial", 20)
-        self.titleFont = pygame.font.SysFont("Arial", 50)
-        
-    def draw_text(self, text, font, color, surface, x, y):
-        textobj = font.render(text, 1, color)
-        textrect = textobj.get_rect()
-        textrect.topleft = (x, y)
-        surface.blit(textobj, textrect)
+        self.__font = self.pygame_wrapper.create_font("Arial", 20)
+        self.__title_font = self.pygame_wrapper.create_font("Arial", 50)
         
     def open(self):
         click = False
@@ -23,59 +15,61 @@ class MainMenu():
         
         running = True   
             
-        buttonWidth = 200
-        buttonHeight = 50
+        button_width = 200
+        button_height = 50
         
-        self.buttonLocationLeft = self.screen_width / 2 - buttonWidth
-        self.buttonLocationStartTop = self.screen_height / 2 - buttonHeight
-        self.buttonLocationQuitTop = self.screen_height / 2 + (buttonHeight*3) 
+        self.button_location_left = self.screen_width / 2 - button_width
+        self.start_button_location_top = self.screen_height / 2 - button_height
+        self.quit_button_location_top = self.screen_height / 2 + (button_height*3) 
 
-        button_1 = pygame.Rect(self.buttonLocationLeft, self.buttonLocationStartTop, buttonWidth, buttonHeight)
-        button_2 = pygame.Rect(self.buttonLocationLeft, self.buttonLocationQuitTop, buttonWidth, buttonHeight)
+        button_start = self.pygame_wrapper.create_button(self.button_location_left, self.start_button_location_top, button_width, button_height)
+        button_quit = self.pygame_wrapper.create_button(self.button_location_left, self.quit_button_location_top, button_width, button_height)
         
-        while running:                
-            mx, my = pygame.mouse.get_pos()
+        while running:
+            mx, my = self.pygame_wrapper.get_mouse_position()
 
-            if button_1.collidepoint((mx, my)):
+            if button_start.collidepoint((mx, my)):
                 if click:
                     self.game()
-            if button_2.collidepoint((mx, my)):
+            if button_quit.collidepoint((mx, my)):
                 if click:
                     self.options()
 
-            pygame.draw.rect(self.screen, (129, 1, 138), button_1)
-            pygame.draw.rect(self.screen, (129, 1, 138), button_2)
+            self.pygame_wrapper.draw_rect(self.screen, (129, 1, 138), button_start)
+            self.pygame_wrapper.draw_rect(self.screen, (129, 1, 138), button_quit)
     
-            self.draw_text('SPACE ROVER', self.titleFont, (255,255,255), self.screen, 720, 250)
-            self.draw_text('PLAY', self.font, (255,255,255), self.screen, self.buttonLocationLeft + 15, self.buttonLocationStartTop + 15)
-            self.draw_text('QUIT', self.font, (255,255,255), self.screen, self.buttonLocationLeft + 15, self.buttonLocationQuitTop + 15)
+            self.__draw_text('SPACE ROVER', self.__title_font, (255,255,255), self.screen, 720, 250)
+            self.__draw_text('PLAY', self.__font, (255,255,255), self.screen, self.button_location_left + 15, self.start_button_location_top + 15)
+            self.__draw_text('QUIT', self.__font, (255,255,255), self.screen, self.button_location_left + 15, self.quit_button_location_top + 15)
 
             click = False
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
+            for event in self.pygame_wrapper.get_event():
+                if event.type == self.pygame_wrapper.get_event_type_quit():
+                    self.pygame_wrapper.quit_game()
+                if event.type == self.pygame_wrapper.get_event_type_keydown:
+                    if event.key == self.pygame_wrapper.get_event_type_kescape():
                         self.pygame_wrapper.quit_game()
-                if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.type == self.pygame_wrapper.get_event_type_mousebuttondown():
                     if event.button == 1:
                         click = True
     
-            pygame.display.update()
-            self.mainClock.tick(60)        
-    
-    def __set_screen(self):
-        self.screen = self.pygame_wrapper.display_set_mode((1920, 1080))
-        self.screen_width, self.screen_height = self.screen.get_size()
+            self.pygame_wrapper.display_update()
+            self.mainClock.tick(60) 
     
     def game(self):
         level_one = LevelOne()
         level_one.open()
-        pygame.quit()
-        sys.exit()
+        self.pygame_wrapper.quit_game()
 
     def options(self):
-        pygame.quit()
-        sys.exit()
+        self.pygame_wrapper.quit_game() 
  
+    def __draw_text(self, text, font, color, surface, x, y):
+        textobj = font.render(text, 1, color)
+        textrect = textobj.get_rect()
+        textrect.topleft = (x, y)
+        surface.blit(textobj, textrect)
+    
+    def __set_screen(self):
+        self.screen = self.pygame_wrapper.display_set_mode((1920, 1080))
+        self.screen_width, self.screen_height = self.screen.get_size()
