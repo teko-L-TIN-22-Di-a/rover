@@ -137,11 +137,6 @@
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                            <i class="fas fa-search"></i> Search
-                        </a>
-                    </li>
                     <li >
                         <a rel="prev" href="../mkdocs/">
                             <i class="fas fa-arrow-left"></i> Previous
@@ -179,7 +174,7 @@ If you're new to pyhton, here's a guide how to contribute to our repository and 
 <h2 id="step-by-step-guide-to-contribute">Step by step guide to contribute</h2>
 <h3 id="1-create-a-fork">1. Create a Fork</h3>
 <p>We use the <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow Workflow</a>. The first thing you need to do is create a <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork</a> of our repository.</p>
-<p><img alt="Gitflow" src="../images/gitflow.png" /></p>
+<p><img alt="Gitflow" src="./images/gitflow.png" /></p>
 <h3 id="2-clone-repository">2. Clone repository</h3>
 <p>Next step, you need to <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">clone</a> your forked repository to your local machine.</p>
 <pre><code class="language-ps">git clone &lt;repositoryUrl&gt;
@@ -226,35 +221,8 @@ If you're new to pyhton, here's a guide how to contribute to our repository and 
     <script>var base_url = ".."</script>
     
     <script src="../js/base.js"></script>
-    <script src="../search/main.js"></script>
 
-    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
