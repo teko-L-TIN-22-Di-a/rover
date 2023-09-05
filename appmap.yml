@@ -1,0 +1,38 @@
+appmap_dir: tmp\appmap
+language: python
+name: docs
+packages:
+- path: _yaml
+- path: yaml
+- path: markdown
+- path: click
+- path: material
+- path: watchdog
+- path: pkg_resources
+- path: packaging
+- path: pathspec
+- path: mkdocs
+- path: pymdownx
+- path: markupsafe
+- path: regex
+- path: platformdirs
+- path: mkdocstrings
+- path: paginate
+- path: pygments
+- path: requests
+- path: mergedeep
+- path: colorama
+- path: pip
+- path: mkdocs_autorefs
+- path: idna
+- path: python
+- path: babel
+- path: jinja2
+- path: _distutils_hack
+- path: dateutil
+- path: griffe
+- path: urllib3
+- path: setuptools
+- path: certifi
+- path: materialx
+- path: charset_normalizer
