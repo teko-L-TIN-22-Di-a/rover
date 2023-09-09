@@ -5,6 +5,7 @@ class MainMenu():
     
     def __init__(self):
         self.pygame_wrapper = PygameWrapper()
+        self.mainClock = self.pygame_wrapper.Clock()
         self.__font = self.pygame_wrapper.create_font("Arial", 20)
         self.__title_font = self.pygame_wrapper.create_font("Arial", 50)
         
@@ -15,12 +16,12 @@ class MainMenu():
         
         running = True   
             
-        button_width = 200
-        button_height = 50
+        button_width = 250
+        button_height = 80
         
         self.button_location_left = self.screen_width / 2 - button_width
         self.start_button_location_top = self.screen_height / 2 - button_height
-        self.quit_button_location_top = self.screen_height / 2 + (button_height*3) 
+        self.quit_button_location_top = self.screen_height / 2 + (button_height*2) 
 
         button_start = self.pygame_wrapper.create_button(self.button_location_left, self.start_button_location_top, button_width, button_height)
         button_quit = self.pygame_wrapper.create_button(self.button_location_left, self.quit_button_location_top, button_width, button_height)

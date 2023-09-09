@@ -9,7 +9,7 @@ If you're new to pyhton, here's a guide how to contribute to our repository and 
 
 We use the [Gitflow Workflow]. The first thing you need to do is create a [fork] of our repository.
 
-![Gitflow](./images/gitflow.png)
+![Gitflow](/images/gitflow.png)
 
 ### 2. Clone repository
 
@@ -42,6 +42,12 @@ pip install mkdocs
 ```
 
 For more information how to run mkdocs and how we used it, have a look at [mkdocs.md]
+
+#### typing-extensions
+
+```ps
+pip install typing-extensions
+```
 
 [Gitflow Workflow]: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 [Pull Request]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
