@@ -16,7 +16,7 @@ class PygameWrapper:
     def Rect(self, left: float, top: float, width: float, height: float):
         pygame.Rect(left, top, width, height)
         
-    def draw_rect(surface, color, rect, width: int = 0):
+    def draw_rect(self, surface, color, rect, width: int = 0):
         pygame.draw.rect(surface, color, rect, width)
             
     def load_image(self, image_path: str):
@@ -74,7 +74,7 @@ class PygameWrapper:
     def get_mouse_position(self):
         return pygame.mouse.get_pos()
         
-    def display_update():
+    def display_update(self):
         pygame.display.update()
        
     @property
