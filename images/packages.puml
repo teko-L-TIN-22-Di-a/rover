@@ -21,4 +21,5 @@ spacerover.main --> spacerover.main_menu
 spacerover.main_menu --> spacerover.level_one
 spacerover.main_menu --> spacerover.pygame_wrapper
 spacerover.rover --> spacerover.obstacle
+spacerover.rover --> spacerover.pygame_wrapper
 @enduml
