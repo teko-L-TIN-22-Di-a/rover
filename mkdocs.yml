@@ -13,6 +13,7 @@ nav:
   - Python: python.md
   - Architecture: 
     - Overview: architecture\overview.md
+    - Rover Class: architecture\rover.md
     - Diagrams: architecture\diagrams.md
   - MkDocs: mkdocs.md
   - Contribute: contribute.md
