@@ -18,12 +18,12 @@ class MainMenu():
         button_width = 250
         button_height = 80
         
-        self.button_location_left = self.screen_width / 2 - button_width
-        self.start_button_location_top = self.screen_height / 2 - button_height
-        self.quit_button_location_top = self.screen_height / 2 + (button_height*2) 
+        self.__button_location_left = self.__screen_width / 2 - button_width
+        self.__start_button_location_top = self.screen_height / 2 - button_height
+        self.__quit_button_location_top = self.screen_height / 2 + (button_height*2) 
 
-        button_start = self.__pygame_wrapper.create_button(self.button_location_left, self.start_button_location_top, button_width, button_height)
-        button_quit = self.__pygame_wrapper.create_button(self.button_location_left, self.quit_button_location_top, button_width, button_height)
+        button_start = self.__pygame_wrapper.create_button(self.__button_location_left, self.__start_button_location_top, button_width, button_height)
+        button_quit = self.__pygame_wrapper.create_button(self.__button_location_left, self.__quit_button_location_top, button_width, button_height)
         
         while running:
             mx, my = self.__pygame_wrapper.get_mouse_position()
@@ -35,12 +35,12 @@ class MainMenu():
                 if click:
                     self.options()
 
-            self.__pygame_wrapper.draw_rect(self.screen, (129, 1, 138), button_start)
-            self.__pygame_wrapper.draw_rect(self.screen, (129, 1, 138), button_quit)
+            self.__pygame_wrapper.draw_rect(self.__screen, (129, 1, 138), button_start)
+            self.__pygame_wrapper.draw_rect(self.__screen, (129, 1, 138), button_quit)
     
-            self.__draw_text('SPACE ROVER', self.__title_font, (255,255,255), self.screen, 720, 250)
-            self.__draw_text('PLAY', self.__font, (255,255,255), self.screen, self.button_location_left + 15, self.start_button_location_top + 15)
-            self.__draw_text('QUIT', self.__font, (255,255,255), self.screen, self.button_location_left + 15, self.quit_button_location_top + 15)
+            self.__draw_text('SPACE ROVER', self.__title_font, (255,255,255), self.__screen, 720, 250)
+            self.__draw_text('PLAY', self.__font, (255,255,255), self.__screen, self.__button_location_left + 15, self.__start_button_location_top + 15)
+            self.__draw_text('QUIT', self.__font, (255,255,255), self.__screen, self.__button_location_left + 15, self.__quit_button_location_top + 15)
 
             click = False
             for event in self.__pygame_wrapper.get_event():
@@ -71,5 +71,5 @@ class MainMenu():
         surface.blit(textobj, textrect)
     
     def __set_screen(self):
-        self.screen = self.__pygame_wrapper.display_set_mode((1920, 1080))
-        self.screen_width, self.screen_height = self.screen.get_size()
+        self.__screen = self.__pygame_wrapper.display_set_mode((1920, 1080))
+        self.__screen_width, self.screen_height = self.__screen.get_size()
