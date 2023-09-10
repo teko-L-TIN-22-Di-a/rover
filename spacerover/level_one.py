@@ -98,13 +98,6 @@ class LevelOne():
         
         if self.rover.rect.colliderect(ob.rect):
             PygameWrapper.draw_rect(self.screen, (255,0,0), self.rover.rect, 2)
-    
-    @property
-    def window_title(self):
-        return self.__window_title
-    @window_title.setter
-    def window_title(self, value):
-        self.__window_title = value
         
     @property
     def background_image(self):

@@ -1,16 +1,18 @@
 from enum import Enum
 from copy import copy
 from obstacle import Obstacle
+from pygame_wrapper import PygameWrapper
 
 class Rover:
     directions = Enum('directions', ["up", "right", "down", "left"])
+    pygame_wrapper = PygameWrapper()
     
-    def __init__(self, pygame_wrapper):
+    def __init__(self, pygame_wrapper_value: PygameWrapper):
+        self.endpoint_reached = False
         self.speed = 10
         self.direction = self.directions.up
-        self.pygame_wrapper = pygame_wrapper
+        self.pygame_wrapper = pygame_wrapper_value
         self.__load_image()
-        self.endpoint_reached = False
         
     def __load_image(self):
         self.image = self.pygame_wrapper.load_image('spacerover\\images\\rover.png')
@@ -137,8 +139,7 @@ class Rover:
         if self.direction == self.directions.down:
             self.image = self.pygame_wrapper.rotate_image(self.image, 270)
         if self.direction == self.directions.right:
-            self.image = self.pygame_wrapper.rotate_image(self.image, 180)
-    
+            self.image = self.pygame_wrapper.rotate_image(self.image, 180)    
     @property
     def endpoint_reached(self):
         return self.__endpoint_reached

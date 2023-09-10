@@ -1,6 +1,5 @@
 class Obstacle:
     def __init__(self, pygame_wrapper, imagePath, x, y):
-        self.type = type
         self.pygame_wrapper = pygame_wrapper
         self.__load_image(imagePath)
         self.rect.x = x
