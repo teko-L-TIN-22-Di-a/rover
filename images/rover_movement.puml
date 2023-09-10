@@ -1,0 +1,69 @@
+@startuml Rover Activity Diagram for rover movement
+
+start
+:Initialize level one;
+while (**enpoint_reached**) is (false)
+    :get key pressed;
+    
+    switch (key)
+    case (up)
+        if (move up possible?) then (true)
+            if (Rotation Required?) then (true)
+                :Rotate Image Up;
+            else (false)
+            endif
+            :Move Up;
+            if (endpoint rechaed?) then (true)
+                #PaleGreen:set **enpoint_reached** to true;
+            else (false)
+            endif
+        else (false)
+        endif
+    case (down)
+        if (move down possible?) then (true)
+            if (Rotation Required?) then (true)
+                :Rotate Image Down;
+            else (false)
+            endif
+            :Move Down;
+            if (endpoint rechaed?) then (true)
+                #PaleGreen:set **enpoint_reached** to true;
+            else (false)
+            endif
+        else (false)
+        endif
+    case (left)
+        if (move left possible?) then (true)
+            if (Rotation Required?) then (true)
+                :Rotate Image Left;
+            else (false)
+            endif
+            :Move Left;
+            if (endpoint rechaed?) then (true)
+                #PaleGreen:set **enpoint_reached** to true;
+            else (false)
+            endif
+        else (false)
+        endif
+    case (right)
+        if (move right possible?) then (true)
+            if (Rotation Required?) then (true)
+                :Rotate Image Right;
+            else (false)
+            endif
+            :Move Right;
+            if (endpoint rechaed?) then (true)
+                #PaleGreen:set **enpoint_reached** to true;
+            else (false)
+            endif
+        else (false)
+        endif
+    endswitch
+
+
+endwhile (true)
+stop
+
+@enduml
+
+// "[is min. 1 egg in fridge?]"
