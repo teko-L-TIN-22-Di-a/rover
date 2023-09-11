@@ -9,7 +9,7 @@ If you're new to pyhton, here's a guide how to contribute to our repository and 
 
 We use the [Gitflow Workflow]. The first thing you need to do is create a [fork] of our repository.
 
-![Gitflow](/images/gitflow.png)
+![Gitflow](./images/gitflow.png)
 
 ### 2. Clone repository
 
