@@ -8,5 +8,7 @@ This is a little rover game, which was created from two [Teko] Students from Luc
 
 Read the [Documentation] for more information about the repository is setup and how to contribute.
 
+![spacerover](https://github.com/teko-L-TIN-22-Di-a/rover/blob/main/docs/images/spacerover.gif)
+
 [Teko]: https://www.teko.ch/
 [Documentation]: https://teko-l-tin-22-di-a.github.io/rover/
